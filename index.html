@@ -51,11 +51,11 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 @media (max-width:600px){#noteWrap{width:100vw;right:-100vw;}}
 
 /* ===== update-available banner (overlays the plan) ===== */
-#updateBar{position:fixed;top:66px;left:50%;transform:translateX(-50%) translateY(-160%);z-index:1100;
+#updateBar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:1300;
  background:linear-gradient(90deg,#ff9800,#ff5722);color:#111;padding:11px 16px;border-radius:11px;
- display:flex;align-items:center;gap:13px;max-width:92vw;border:2px solid rgba(255,255,255,.35);
- box-shadow:0 8px 34px rgba(255,110,0,.55);transition:transform .38s cubic-bezier(.2,1.5,.4,1);}
-#updateBar.show{transform:translateX(-50%) translateY(0);animation:updpulse 1.6s ease-in-out infinite;}
+ display:none;align-items:center;gap:13px;max-width:94vw;flex-wrap:wrap;justify-content:center;border:2px solid rgba(255,255,255,.45);
+ box-shadow:0 8px 34px rgba(255,110,0,.6);}
+#updateBar.show{display:flex;animation:updpulse 1.6s ease-in-out infinite;}
 @keyframes updpulse{0%,100%{box-shadow:0 8px 30px rgba(255,110,0,.5);}50%{box-shadow:0 10px 50px rgba(255,150,0,1);}}
 #updateBar .ub-ico{font-size:1.3rem;line-height:1;}
 #updateBar .ub-txt{font-size:.83rem;font-weight:800;line-height:1.25;}
@@ -64,7 +64,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 #updateBar .ub-go:hover{background:#000;}
 #updateBar .ub-x{background:none;border:none;color:#111;font-size:1.05rem;cursor:pointer;padding:0 2px;opacity:.7;}
 #updateBar .ub-x:hover{opacity:1;}
-@media (max-width:600px){#updateBar{top:auto;bottom:14px;flex-wrap:wrap;justify-content:center;text-align:center;}}
+@media (max-width:600px){#updateBar{top:12px;bottom:auto;left:8px;right:8px;transform:none;max-width:none;text-align:center;}}
 
 /* version-history modal */
 #histWrap{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1200;display:none;align-items:center;justify-content:center;padding:16px;}
@@ -876,9 +876,9 @@ function showHistory(){const L=document.getElementById('histList');L.innerHTML=C
 function hideHistory(){document.getElementById('histWrap').classList.remove('open');}
 function showUpdateBanner(latest,clog){var s=document.getElementById('ubSub');if(s)s.textContent=(clog?clog:'Refresh to load the latest plan')+(latest&&latest!=='demo'?'  ('+'v'+latest+')':'');document.getElementById('updateBar').classList.add('show');}
 function dismissUpdate(){document.getElementById('updateBar').classList.remove('show');}
-function doRefresh(){var u=location.href.split('#')[0].split('?')[0]+'?r='+Date.now();location.href=u;}
+function doRefresh(){dismissUpdate();var u=location.href.split('#')[0].split('?')[0]+'?r='+Date.now();location.href=u;}
 async function checkVersion(){
-  if(location.search.indexOf('demoUpdate')>-1){showUpdateBanner('demo','Demo: this is how a new-version notice looks.');return;}
+  if(location.search.indexOf('demoUpdate')>-1){showUpdateBanner('demo','PREVIEW only - remove ?demoUpdate=1 from the URL to dismiss.');return;}
   var latest=null,clog=null;
   if(FIREBASE_URL){try{const r=await fetch(FIREBASE_URL+VERSION_PATH,{cache:'no-store'});const v=await r.json();if(v!==null&&v!==undefined)latest=String(v);}catch(e){}
     try{const r2=await fetch(FIREBASE_URL+CHANGELOG_PATH,{cache:'no-store'});const c=await r2.json();if(c)clog=String(c);}catch(e){}}

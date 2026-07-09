@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly's Barndominium v21</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly &amp; Stacie's Barndominium v22</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow:hidden;height:100vh;display:flex;flex-direction:column;}
@@ -82,22 +82,22 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 .pinLayer g{cursor:pointer;}
 .note.flash{outline:2px solid #00d4ff;}
 </style></head><body>
-<!--BARNDO_APP_VERSION=21-->
-<!--BARNDO_CHANGELOG=Upper bedrooms moved back to the north wall for windows; closets tucked into the south corners; hall moved down 4 feet (bigger bedrooms, shorter office/gym); west hall removed with a man-cave door at the hall end; hobby and mechanical swapped with the mech door off the cave bath.-->
+<!--BARNDO_APP_VERSION=22-->
+<!--BARNDO_CHANGELOG=Renamed to Kelly and Stacie's Barndominium; the new-version banner now works without Firebase again (only alerts when the deployed version is genuinely newer).-->
 <!--BARNDO_CHANGELOG=Change requests now drop pins on the plan where you tap; your wife's notes auto-sync in every ~30s; this banner shows what changed.-->
-<div id="hdr"><h1>Kelly's Barndominium v21</h1>
+<div id="hdr"><h1>Kelly &amp; Stacie's Barndominium v22</h1>
 <div class="tabs">
 <div class="tab active" onclick="show('main',this)">Main Floor</div>
 <div class="tab" onclick="show('upper',this)">Upper Floor</div>
 <div class="tab" onclick="show('overlay',this)">Overlay</div>
 </div>
 <div id="ctrl"><button class="cb" onclick="zm(-.15)">-</button><span id="zlbl">55%</span>
-<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="fitView()">Fit</button><button class="cb" onclick="showHistory()" title="version history" style="border-color:#00d4ff;color:#00d4ff">&#8505; v21</button><button class="cb" id="noteBtn" onclick="togglePanel()" style="border-color:#e91e63;color:#e91e63;font-weight:700">&#128221; Changes (<span id="nCount">0</span>)</button></div></div>
+<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="fitView()">Fit</button><button class="cb" onclick="showHistory()" title="version history" style="border-color:#00d4ff;color:#00d4ff">&#8505; v22</button><button class="cb" id="noteBtn" onclick="togglePanel()" style="border-color:#e91e63;color:#e91e63;font-weight:700">&#128221; Changes (<span id="nCount">0</span>)</button></div></div>
 <div id="wrap"><div id="cv">
 <div class="fl on" id="floor-main">
 <svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="g1" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1560" height="1000" fill="#12121f"/><rect width="1560" height="1000" fill="url(#g1)"/>
-<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v21  (9px = 1ft)   Master suite wing BEHIND garage   North &#8593; top</text>
+<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v22  (9px = 1ft)   Master suite wing BEHIND garage   North &#8593; top</text>
 <text x="600" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Single-story master wing north of garage | Living 811 sf + Kitchen 520 sf (larger) | All doors 36&quot; &#9855; | Hover rooms</text>
 <rect x="60" y="50" width="1080" height="13" fill="#0d1a0d" stroke="#27ae60" stroke-width=".7" rx="2"/>
 <text x="600" y="59" font-family="Segoe UI" font-size="6.5" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855;  36&quot;+ DOORS | 42&quot; ENTRY | ZERO-STEP | 5&#39; TURNS | ROLL-IN SHOWER | 36&quot; COMFORT VANITIES | LEVER HANDLES | LIFT-READY STAIR</text>
@@ -460,7 +460,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <div class="fl" id="floor-upper">
 <svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="g2" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1560" height="1000" fill="#12121f"/><rect width="1560" height="1000" fill="url(#g2)"/>
-<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v21 — man cave above garage; master wing is single-story below</text>
+<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v22 — man cave above garage; master wing is single-story below</text>
 <text x="600" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Bigger open-to-below + loft over the larger great room | Wing = vaulted master (no upper floor)</text>
 <rect x="492" y="64" width="648" height="504" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="6,4" opacity=".4"/>
 <rect x="60" y="298" width="432" height="270" fill="none" stroke="#f39c12" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
@@ -758,7 +758,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
   <label>Who's asking?</label>
   <div class="nrow">
    <div class="nwho sel" id="whoK" onclick="setWho('Kelly')">Kelly</div>
-   <div class="nwho" id="whoW" onclick="setWho('Wife')">Wife &#10084;</div>
+   <div class="nwho" id="whoW" onclick="setWho('Stacie')">Stacie &#10084;</div>
   </div>
   <label>Room (tap any room on the plan to fill this)</label>
   <input id="noteRoom" placeholder="e.g. KITCHEN — or leave blank for general"/>
@@ -852,9 +852,10 @@ function openNoteFromPin(id){if(!document.getElementById('noteWrap').classList.c
 function copyNotes(){const t=notes.map(n=>'['+(n.done?'DONE':'OPEN')+'] '+n.who+' - '+n.room+(n.pos?' (pinned)':'')+' ('+n.ts+')\n'+n.text).join('\n\n');const full='BARNDO FLOOR PLAN - CHANGE REQUESTS\n\n'+(t||'(none)');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(full).then(()=>setSync('Copied - paste into a text to share')).catch(()=>setSync('Copy failed'));}else{const ta=document.createElement('textarea');ta.value=full;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');setSync('Copied');}catch(e){}ta.remove();}}
 
 /* ================= version history + update banner ================= */
-const APP_VERSION="21";
+const APP_VERSION="22";
 const VERSION_PATH="/barndo_floorplan_version.json",CHANGELOG_PATH="/barndo_floorplan_changelog.json";
 const CHANGELOG=[
+ {v:"22",items:["Renamed to Kelly &amp; Stacie&#39;s Barndominium (and notes now credit Stacie)","New-version banner works again without Firebase &#8212; it re-checks the deployed file","It only alerts when the deployed version is genuinely NEWER, so no more false alarms"]},
  {v:"21",items:["Bedrooms back on the NORTH wall for windows/egress; closets tucked into south corners","Upper hall moved down 4&#39; &#8594; bigger bedrooms, shorter office &amp; gym","West hall removed; the hall now has a west-end door into the man cave","Hobby &amp; upper mechanical switched; mech door now comes off the man-cave bath"]},
  {v:"20",items:["UPPER: new hallway gives proper door access to BR2, BR3, office, gym &amp; man cave","UPPER: bedrooms moved south of their (bigger) closets, opening onto the hall","UPPER: craft room moved all the way west to the cave-bath wall; office &amp; gym shrunk 4&#39;","MAIN: foyer walls removed (open entry); service hall removed &amp; laundry/storage extended","MAIN: butler&#39;s pantry narrowed 4&#39; with open shelving; dining widened 4&#39;"]},
  {v:"19",items:["Master bedroom reshaped to be nearly SQUARE (24x26 = 624 sf) instead of 35x16","Foyer &amp; covered porch moved to the center of the front wall (west side of the butler's pantry)","Storage and mechanical rooms swapped","Bath, closets, vault &amp; linen rearranged into a column beside the bedroom"]},
@@ -874,11 +875,21 @@ function doRefresh(){dismissUpdate();var u=location.href.split('#')[0].split('?'
 var dismissedV=null;
 async function checkVersion(){
   if(location.search.indexOf('demoUpdate')>-1){showUpdateBanner('demo','PREVIEW only - remove ?demoUpdate=1 from the URL.');return;}
-  if(!FIREBASE_URL)return;   /* no Firebase = no auto-check, so it can never false-alarm */
   var latest=null,clog=null;
-  try{const r=await fetch(FIREBASE_URL+VERSION_PATH,{cache:'no-store'});const v=await r.json();if(v!==null&&v!==undefined)latest=String(v);}catch(e){}
-  try{const r2=await fetch(FIREBASE_URL+CHANGELOG_PATH,{cache:'no-store'});const c=await r2.json();if(c)clog=String(c);}catch(e){}
-  if(latest && latest!==APP_VERSION && latest!==dismissedV) showUpdateBanner(latest,clog);
+  if(FIREBASE_URL){
+    try{const r=await fetch(FIREBASE_URL+VERSION_PATH,{cache:'no-store'});const v=await r.json();if(v!==null&&v!==undefined)latest=String(v);}catch(e){}
+    try{const r2=await fetch(FIREBASE_URL+CHANGELOG_PATH,{cache:'no-store'});const c=await r2.json();if(c)clog=String(c);}catch(e){}
+  }
+  if(latest===null){
+    try{const u=location.href.split('#')[0].split('?')[0]+'?v='+Date.now();
+        const r=await fetch(u,{cache:'no-store'});const t=await r.text();
+        const m=t.match(/BARNDO_APP_VERSION=([\w.\-]+)/);if(m)latest=m[1];
+        const mc=t.match(/BARNDO_CHANGELOG=([^>]*?)-->/);if(mc)clog=mc[1].trim();
+    }catch(e){}
+  }
+  /* only alert when the deployed version is strictly NEWER (prevents stale-cache false alarms) */
+  var cur=parseInt(APP_VERSION,10), lv=parseInt(latest,10);
+  if(latest && !isNaN(lv) && !isNaN(cur) && lv>cur && String(latest)!==dismissedV) showUpdateBanner(String(latest),clog);
 }
 
 fitView();

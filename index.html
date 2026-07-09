@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly &amp; Stacie's Barndominium v30</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly &amp; Stacie's Barndominium v31</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow:hidden;height:100vh;display:flex;flex-direction:column;}
@@ -93,22 +93,22 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 .sync-dot.error{background:#e74c3c;box-shadow:0 0 6px #e74c3c;}
 @keyframes syncpulse{0%,100%{opacity:1;}50%{opacity:.25;}}
 </style></head><body>
-<!--BARNDO_APP_VERSION=30-->
-<!--BARNDO_CHANGELOG=Added a sync status light next to the version: amber while saving, green when saved/synced, grey for device-only, red on error.-->
+<!--BARNDO_APP_VERSION=31-->
+<!--BARNDO_CHANGELOG=Wired in the Firebase database so change requests sync between Kelly and Stacie; the sync light turns green when saved.-->
 <!--BARNDO_CHANGELOG=Change requests now drop pins on the plan where you tap; your wife's notes auto-sync in every ~30s; this banner shows what changed.-->
-<div id="hdr"><h1>Kelly &amp; Stacie's Barndominium v30</h1>
+<div id="hdr"><h1>Kelly &amp; Stacie's Barndominium v31</h1>
 <div class="tabs">
 <div class="tab active" onclick="show('main',this)">Main Floor</div>
 <div class="tab" onclick="show('upper',this)">Upper Floor</div>
 <div class="tab" onclick="show('overlay',this)">Overlay</div>
 </div>
 <div id="ctrl"><button class="cb" onclick="zm(-.15)">-</button><span id="zlbl">55%</span>
-<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="fitView()">Fit</button><span id="syncLight" class="sync-dot local" title="sync status"></span><button class="cb" onclick="showHistory()" title="version history" style="border-color:#00d4ff;color:#00d4ff">&#8505; v30</button><button class="cb" id="noteBtn" onclick="togglePanel()" style="border-color:#e91e63;color:#e91e63;font-weight:700">&#128221; Changes (<span id="nCount">0</span>)</button></div></div>
+<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="fitView()">Fit</button><span id="syncLight" class="sync-dot local" title="sync status"></span><button class="cb" onclick="showHistory()" title="version history" style="border-color:#00d4ff;color:#00d4ff">&#8505; v31</button><button class="cb" id="noteBtn" onclick="togglePanel()" style="border-color:#e91e63;color:#e91e63;font-weight:700">&#128221; Changes (<span id="nCount">0</span>)</button></div></div>
 <div id="wrap"><div id="cv">
 <div class="fl on" id="floor-main">
 <svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="g1" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1560" height="1000" fill="#12121f"/><rect width="1560" height="1000" fill="url(#g1)"/>
-<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v30  (9px = 1ft)   Master suite wing BEHIND garage   North &#8593; top</text>
+<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v31  (9px = 1ft)   Master suite wing BEHIND garage   North &#8593; top</text>
 <text x="600" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Single-story master wing north of garage | Living 811 sf + Kitchen 520 sf (larger) | All doors 36&quot; &#9855; | Hover rooms</text>
 <rect x="60" y="50" width="1080" height="13" fill="#0d1a0d" stroke="#27ae60" stroke-width=".7" rx="2"/>
 <text x="600" y="59" font-family="Segoe UI" font-size="6.5" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855;  36&quot;+ DOORS | 42&quot; ENTRY | ZERO-STEP | 5&#39; TURNS | ROLL-IN SHOWER | 36&quot; COMFORT VANITIES | LEVER HANDLES | LIFT-READY STAIR</text>
@@ -469,7 +469,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <div class="fl" id="floor-upper">
 <svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="g2" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1560" height="1000" fill="#12121f"/><rect width="1560" height="1000" fill="url(#g2)"/>
-<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v30 — man cave above garage; master wing is single-story below</text>
+<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v31 — man cave above garage; master wing is single-story below</text>
 <text x="600" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Bigger open-to-below + loft over the larger great room | Wing = vaulted master (no upper floor)</text>
 <rect x="492" y="64" width="648" height="504" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="6,4" opacity=".4"/>
 <rect x="60" y="298" width="432" height="270" fill="none" stroke="#f39c12" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
@@ -821,7 +821,7 @@ function show(f,el){document.querySelectorAll('.fl').forEach(x=>x.classList.remo
 /* ================= change requests + pins ================= */
 /* SETUP (Kelly): paste your Firebase Realtime DB URL below to sync with your wife
    (REST, no SDK). Leave "" for device-only + Copy All. */
-const FIREBASE_URL = "";
+const FIREBASE_URL = "https://house-floor-plan-855a8-default-rtdb.firebaseio.com";
 const NOTES_PATH = "/barndo_floorplan_notes.json";
 let notes=[],who='Kelly';
 function setWho(n){who=n;document.getElementById('whoK').classList.toggle('sel',n==='Kelly');document.getElementById('whoW').classList.toggle('sel',n!=='Kelly');}
@@ -864,9 +864,10 @@ function openNoteFromPin(id){if(!document.getElementById('noteWrap').classList.c
 function copyNotes(){const t=notes.map(n=>'['+(n.done?'DONE':'OPEN')+'] '+n.who+' - '+n.room+(n.pos?' (pinned)':'')+' ('+n.ts+')\n'+n.text).join('\n\n');const full='BARNDO FLOOR PLAN - CHANGE REQUESTS\n\n'+(t||'(none)');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(full).then(()=>setSync('Copied - paste into a text to share')).catch(()=>setSync('Copy failed'));}else{const ta=document.createElement('textarea');ta.value=full;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');setSync('Copied');}catch(e){}ta.remove();}}
 
 /* ================= version history + update banner ================= */
-const APP_VERSION="30";
+const APP_VERSION="31";
 const VERSION_PATH="/barndo_floorplan_version.json",CHANGELOG_PATH="/barndo_floorplan_changelog.json";
 const CHANGELOG=[
+ {v:"31",items:["Connected the Firebase database &#8212; change requests now sync between Kelly &amp; Stacie","Sync light turns green once notes save to Firebase"]},
  {v:"30",items:["Added a sync light next to the version &#8212; amber = saving, green = saved/synced, grey = device-only, red = error"]},
  {v:"29",items:["Legend now shows a total square-footage readout for the floor you&#39;re viewing","Bedroom 2 &amp; 3 closets shrunk back to 8x8 (their pre-move size)"]},
  {v:"28",items:["Updated the on-plan legend so every room size matches the current layout (both floors)"]},

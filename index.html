@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly &amp; Stacie's Barndominium v22</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly &amp; Stacie's Barndominium v23</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow:hidden;height:100vh;display:flex;flex-direction:column;}
@@ -82,22 +82,22 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 .pinLayer g{cursor:pointer;}
 .note.flash{outline:2px solid #00d4ff;}
 </style></head><body>
-<!--BARNDO_APP_VERSION=22-->
-<!--BARNDO_CHANGELOG=Renamed to Kelly and Stacie's Barndominium; the new-version banner now works without Firebase again (only alerts when the deployed version is genuinely newer).-->
+<!--BARNDO_APP_VERSION=23-->
+<!--BARNDO_CHANGELOG=Removed the foyer coat closet and the closet west of the foyer; in the drop zone the cabinets moved to the north wall with 8 feet swapped for a coat rod.-->
 <!--BARNDO_CHANGELOG=Change requests now drop pins on the plan where you tap; your wife's notes auto-sync in every ~30s; this banner shows what changed.-->
-<div id="hdr"><h1>Kelly &amp; Stacie's Barndominium v22</h1>
+<div id="hdr"><h1>Kelly &amp; Stacie's Barndominium v23</h1>
 <div class="tabs">
 <div class="tab active" onclick="show('main',this)">Main Floor</div>
 <div class="tab" onclick="show('upper',this)">Upper Floor</div>
 <div class="tab" onclick="show('overlay',this)">Overlay</div>
 </div>
 <div id="ctrl"><button class="cb" onclick="zm(-.15)">-</button><span id="zlbl">55%</span>
-<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="fitView()">Fit</button><button class="cb" onclick="showHistory()" title="version history" style="border-color:#00d4ff;color:#00d4ff">&#8505; v22</button><button class="cb" id="noteBtn" onclick="togglePanel()" style="border-color:#e91e63;color:#e91e63;font-weight:700">&#128221; Changes (<span id="nCount">0</span>)</button></div></div>
+<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="fitView()">Fit</button><button class="cb" onclick="showHistory()" title="version history" style="border-color:#00d4ff;color:#00d4ff">&#8505; v23</button><button class="cb" id="noteBtn" onclick="togglePanel()" style="border-color:#e91e63;color:#e91e63;font-weight:700">&#128221; Changes (<span id="nCount">0</span>)</button></div></div>
 <div id="wrap"><div id="cv">
 <div class="fl on" id="floor-main">
 <svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="g1" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1560" height="1000" fill="#12121f"/><rect width="1560" height="1000" fill="url(#g1)"/>
-<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v22  (9px = 1ft)   Master suite wing BEHIND garage   North &#8593; top</text>
+<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v23  (9px = 1ft)   Master suite wing BEHIND garage   North &#8593; top</text>
 <text x="600" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Single-story master wing north of garage | Living 811 sf + Kitchen 520 sf (larger) | All doors 36&quot; &#9855; | Hover rooms</text>
 <rect x="60" y="50" width="1080" height="13" fill="#0d1a0d" stroke="#27ae60" stroke-width=".7" rx="2"/>
 <text x="600" y="59" font-family="Segoe UI" font-size="6.5" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855;  36&quot;+ DOORS | 42&quot; ENTRY | ZERO-STEP | 5&#39; TURNS | ROLL-IN SHOWER | 36&quot; COMFORT VANITIES | LEVER HANDLES | LIFT-READY STAIR</text>
@@ -265,10 +265,13 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <circle cx="576" cy="424" r="11" fill="#1a1010" stroke="#c0392b" stroke-width=".8"/>
 <rect x="534" y="403" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M534 406 Q534 433 561 433" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
 </g>
-<g class="room" data-label="CABINET WALL / DROP ZONE" data-dim="28&#39; x 6&#39; = 168 sq ft|Floor-to-ceiling cabinet wall + bench &#10003;|South windows|Overflow storage">
+<g class="room" data-label="CABINET WALL / DROP ZONE" data-dim="28&#39; x 6&#39; = 168 sq ft|Cabinets moved to the NORTH wall &#10003;|~20&#39; of cabinets + 8&#39; coat rod &#10003;|Bench below + south windows">
 <rect x="492" y="514" width="252" height="54" fill="#1a2318" stroke="#8a9a30" stroke-width="1.5" opacity="1" rx="1"/>
-<text x="618" y="540" font-family="Segoe UI" font-size="7.5" fill="#a8b840" text-anchor="middle" font-weight="700">CABINET WALL / DROP ZONE  28&#39;x6&#39; &#10003;</text>
-<rect x="498" y="548" width="240" height="12" fill="#1c3a22" stroke="#8a9a30" stroke-width=".6"/>
+<text x="600" y="548" font-family="Segoe UI" font-size="7" fill="#a8b840" text-anchor="middle" font-weight="700">DROP ZONE &#8212; cabinets (north) + coat rod</text>
+<rect x="498" y="516" width="168" height="12" fill="#1c3a22" stroke="#8a9a30" stroke-width=".6"/>
+<text x="582" y="525" font-family="Segoe UI" font-size="5.5" fill="#8a9a30" text-anchor="middle">cabinets ~20&#39;</text>
+<line x1="672" y1="520" x2="738" y2="520" stroke="#d4ac0d" stroke-width="1.5"/><line x1="680" y1="518" x2="680" y2="526" stroke="#d4ac0d" stroke-width=".7"/><circle cx="680" cy="527" r="1.6" fill="none" stroke="#d4ac0d" stroke-width=".7"/><line x1="692" y1="518" x2="692" y2="526" stroke="#d4ac0d" stroke-width=".7"/><circle cx="692" cy="527" r="1.6" fill="none" stroke="#d4ac0d" stroke-width=".7"/><line x1="704" y1="518" x2="704" y2="526" stroke="#d4ac0d" stroke-width=".7"/><circle cx="704" cy="527" r="1.6" fill="none" stroke="#d4ac0d" stroke-width=".7"/><line x1="716" y1="518" x2="716" y2="526" stroke="#d4ac0d" stroke-width=".7"/><circle cx="716" cy="527" r="1.6" fill="none" stroke="#d4ac0d" stroke-width=".7"/><line x1="728" y1="518" x2="728" y2="526" stroke="#d4ac0d" stroke-width=".7"/><circle cx="728" cy="527" r="1.6" fill="none" stroke="#d4ac0d" stroke-width=".7"/>
+<text x="705" y="537" font-family="Segoe UI" font-size="5.5" fill="#d4ac0d" text-anchor="middle">coat rod 8&#39;</text>
 <rect x="530" y="561" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="560" y1="561" x2="560" y2="568" stroke="#3498db" stroke-width=".8"/>
 <rect x="640" y="561" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="670" y1="561" x2="670" y2="568" stroke="#3498db" stroke-width=".8"/>
 </g>
@@ -296,10 +299,6 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <text x="816" y="440" font-family="Segoe UI" font-size="9" fill="#555" text-anchor="middle" font-weight="normal">&#8593; UP</text>
 <rect x="786" y="206" width="20" height="20" fill="#0d1a0d" stroke="#27ae60" stroke-width="1" rx="2"/>
 <text x="796" y="220" font-family="Segoe UI" font-size="9" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855;</text>
-</g>
-<g class="room" data-label="COAT / BROOM CLOSET" data-dim="4&#39; x 10&#39; = 42 sq ft|Utility closet off the center hall">
-<rect x="744" y="474" width="36" height="94" fill="#181828" stroke="#666" stroke-width="1.5" opacity="1" rx="1"/>
-<text x="762" y="521" font-family="Segoe UI" font-size="6" fill="#777" text-anchor="middle" transform="rotate(-90,762,521)">CLOSET</text>
 </g>
 <g class="room" data-label="WALK-IN / BUTLER&#39;S PANTRY" data-dim="12&#39; x 14&#39; = 168 sq ft|Narrowed 4&#39; &#10003;|SHELVING on west, south &amp; east walls (cabinets removed) &#10003;|2nd fridge space|Between foyer and dining">
 <rect x="852" y="438" width="108" height="130" fill="#1a2a1a" stroke="#58d68d" stroke-width="2" opacity="1" rx="1"/>
@@ -364,12 +363,10 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <text x="1050" y="508" font-family="Segoe UI" font-size="7.5" fill="#666" text-anchor="middle" font-weight="normal">20' x 14' = 288 sf  &#9855;</text>
 <rect x="1020" y="561" width="90" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/>
 </g>
-<g class="room" data-label="FOYER (open)" data-dim="8&#39; x 14&#39; = 115 sq ft|WALLS REMOVED &#8212; open to great room &#10003;|Central front entry|Built-in coat closet|&#9855; 42&quot; front door, zero-step">
+<g class="room" data-label="FOYER (open)" data-dim="8&#39; x 14&#39; = 115 sq ft|WALLS REMOVED &#8212; open to great room &#10003;|Central front entry at the base of the stairs|&#9855; 42&quot; front door, zero-step">
 <rect x="780" y="438" width="72" height="130" fill="#161625" stroke="#d4ac0d" stroke-width="1" stroke-dasharray="3,4" opacity="1" rx="1"/>
-<text x="816" y="486" font-family="Segoe UI" font-size="9.5" fill="#d4ac0d" text-anchor="middle" font-weight="700">FOYER</text>
-<text x="816" y="500" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">open entry  &#9855;</text>
-<rect x="786" y="444" width="60" height="12" fill="#181828" stroke="#d4ac0d" stroke-width="1" rx="1"/>
-<text x="816" y="453" font-family="Segoe UI" font-size="5.5" fill="#d4ac0d" text-anchor="middle" font-weight="normal">coat closet</text>
+<text x="816" y="498" font-family="Segoe UI" font-size="9.5" fill="#d4ac0d" text-anchor="middle" font-weight="700">FOYER</text>
+<text x="816" y="512" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">open entry  &#9855;</text>
 <rect x="794" y="565" width="44" height="6" fill="#d4ac0d" rx="1"/>
 <text x="816" y="528" font-family="Segoe UI" font-size="6.5" fill="#d4ac0d" text-anchor="middle" font-weight="normal">&#9660; 42&quot; entry &#9855;</text>
 </g>
@@ -460,7 +457,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <div class="fl" id="floor-upper">
 <svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="g2" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1560" height="1000" fill="#12121f"/><rect width="1560" height="1000" fill="url(#g2)"/>
-<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v22 — man cave above garage; master wing is single-story below</text>
+<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v23 — man cave above garage; master wing is single-story below</text>
 <text x="600" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Bigger open-to-below + loft over the larger great room | Wing = vaulted master (no upper floor)</text>
 <rect x="492" y="64" width="648" height="504" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="6,4" opacity=".4"/>
 <rect x="60" y="298" width="432" height="270" fill="none" stroke="#f39c12" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
@@ -852,9 +849,10 @@ function openNoteFromPin(id){if(!document.getElementById('noteWrap').classList.c
 function copyNotes(){const t=notes.map(n=>'['+(n.done?'DONE':'OPEN')+'] '+n.who+' - '+n.room+(n.pos?' (pinned)':'')+' ('+n.ts+')\n'+n.text).join('\n\n');const full='BARNDO FLOOR PLAN - CHANGE REQUESTS\n\n'+(t||'(none)');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(full).then(()=>setSync('Copied - paste into a text to share')).catch(()=>setSync('Copy failed'));}else{const ta=document.createElement('textarea');ta.value=full;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');setSync('Copied');}catch(e){}ta.remove();}}
 
 /* ================= version history + update banner ================= */
-const APP_VERSION="22";
+const APP_VERSION="23";
 const VERSION_PATH="/barndo_floorplan_version.json",CHANGELOG_PATH="/barndo_floorplan_changelog.json";
 const CHANGELOG=[
+ {v:"23",items:["Removed the foyer coat closet (at the base of the stairs)","Removed the closet just west of the foyer","Drop zone: cabinets moved to the north wall; 8&#39; of cabinets swapped for a coat rod"]},
  {v:"22",items:["Renamed to Kelly &amp; Stacie&#39;s Barndominium (and notes now credit Stacie)","New-version banner works again without Firebase &#8212; it re-checks the deployed file","It only alerts when the deployed version is genuinely NEWER, so no more false alarms"]},
  {v:"21",items:["Bedrooms back on the NORTH wall for windows/egress; closets tucked into south corners","Upper hall moved down 4&#39; &#8594; bigger bedrooms, shorter office &amp; gym","West hall removed; the hall now has a west-end door into the man cave","Hobby &amp; upper mechanical switched; mech door now comes off the man-cave bath"]},
  {v:"20",items:["UPPER: new hallway gives proper door access to BR2, BR3, office, gym &amp; man cave","UPPER: bedrooms moved south of their (bigger) closets, opening onto the hall","UPPER: craft room moved all the way west to the cave-bath wall; office &amp; gym shrunk 4&#39;","MAIN: foyer walls removed (open entry); service hall removed &amp; laundry/storage extended","MAIN: butler&#39;s pantry narrowed 4&#39; with open shelving; dining widened 4&#39;"]},

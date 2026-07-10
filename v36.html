@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly &amp; Stacie's Barndominium v38</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly &amp; Stacie's Barndominium v35</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow:hidden;height:100vh;display:flex;flex-direction:column;}
@@ -93,22 +93,23 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 .sync-dot.error{background:#e74c3c;box-shadow:0 0 6px #e74c3c;}
 @keyframes syncpulse{0%,100%{opacity:1;}50%{opacity:.25;}}
 </style></head><body>
-<!--BARNDO_APP_VERSION=38-->
-<!--BARNDO_CHANGELOG=Fixed the main-floor legend so it now shows Living and Garage square footage (that element was never added correctly before).-->
+<a href="../index.html" title="return to the current version" style="position:fixed;bottom:12px;right:14px;z-index:99999;background:#8a6a30;color:#fff;padding:5px 11px;border-radius:7px;font:600 11px 'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.5);">&#128193; archived v35 &#183; back to latest &#9658;</a>
+<!--BARNDO_APP_VERSION=35-->
+<!--BARNDO_CHANGELOG=Moved the double-sided fireplace to the north end of the wall between the master bedroom and sitting room.-->
 <!--BARNDO_CHANGELOG=Change requests now drop pins on the plan where you tap; your wife's notes auto-sync in every ~30s; this banner shows what changed.-->
-<div id="hdr"><h1>Kelly &amp; Stacie's Barndominium v38</h1>
+<div id="hdr"><h1>Kelly &amp; Stacie's Barndominium v35</h1>
 <div class="tabs">
 <div class="tab active" onclick="show('main',this)">Main Floor</div>
 <div class="tab" onclick="show('upper',this)">Upper Floor</div>
 <div class="tab" onclick="show('overlay',this)">Overlay</div>
 </div>
 <div id="ctrl"><button class="cb" onclick="zm(-.15)">-</button><span id="zlbl">55%</span>
-<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="fitView()">Fit</button><select id="verPicker" onchange="if(this.value)location.href='versions/'+this.value+'.html';" style="padding:4px 6px;background:#1e1e3a;border:1px solid #8a6a30;color:#d4ac0d;border-radius:3px;font-size:.72rem;max-width:150px;cursor:pointer;" title="pull up a previous layout"><option value="" selected>&#9662; View a past version&#8230;</option><option value="" disabled>&#8212; current: v38 &#8212;</option><option value="v36">v36 &#8212; version picker added</option><option value="v35">v35 &#8212; fireplace to north end</option><option value="v34">v34 &#8212; gabled entry</option><option value="v33">v33 &#8212; full-width porch; dish sink</option><option value="v32">v32 &#8212; combined closet + island; French doors; 2-sided FP</option><option value="v31">v31 &#8212; Firebase connected</option><option value="v30">v30 &#8212; sync status light</option><option value="v29">v29 &#8212; floor totals; closets 8x8</option><option value="v28">v28 &#8212; legend sizes synced</option><option value="v27">v27 &#8212; mud/mech swap; closet setback</option><option value="v26">v26 &#8212; half bath into laundry</option><option value="v25">v25 &#8212; pantry pass-through; fireplace east</option><option value="v24">v24 &#8212; What's New fix</option><option value="v23">v23 &#8212; removed extra closets; coat rod</option><option value="v22">v22 &#8212; renamed Kelly & Stacie</option><option value="v21">v21 &#8212; bedrooms back on north wall (windows)</option><option value="v20">v20 &#8212; upper hallway (closets on north)</option><option value="v19">v19 &#8212; foyer & porch centered; linen fixed</option><option value="v17">v17 &#8212; change-request pins on the plan</option><option value="v16">v16 &#8212; added update banner</option><option value="v15">v15 &#8212; merged sitting room; mobile fixes</option><option value="v14">v14 &#8212; added change-request panel</option><option value="v13">v13 &#8212; loft removed -> cathedral; vault in wing</option><option value="v12">v12 &#8212; master suite behind garage; larger living & kitchen</option><option value="v11">v11 &#8212; garage flush to front; butler's pantry</option><option value="v10">v10 &#8212; closets between bed & bath; bigger kitchen/dining</option><option value="v9">v9 &#8212; early layout</option><option value="v8">v8 &#8212; early layout</option><option value="v7">v7 &#8212; early layout</option><option value="v6">v6 &#8212; early layout</option><option value="v5">v5 &#8212; early layout</option><option value="v4">v4 &#8212; early layout</option><option value="v3">v3 &#8212; early layout</option><option value="v2">v2 &#8212; early layout</option></select><span id="syncLight" class="sync-dot local" title="sync status"></span><button class="cb" onclick="showHistory()" title="version history" style="border-color:#00d4ff;color:#00d4ff">&#8505; v38</button><button class="cb" id="noteBtn" onclick="togglePanel()" style="border-color:#e91e63;color:#e91e63;font-weight:700">&#128221; Changes (<span id="nCount">0</span>)</button></div></div>
+<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="fitView()">Fit</button><span id="syncLight" class="sync-dot local" title="sync status"></span><button class="cb" onclick="showHistory()" title="version history" style="border-color:#00d4ff;color:#00d4ff">&#8505; v35</button><button class="cb" id="noteBtn" onclick="togglePanel()" style="border-color:#e91e63;color:#e91e63;font-weight:700">&#128221; Changes (<span id="nCount">0</span>)</button></div></div>
 <div id="wrap"><div id="cv">
 <div class="fl on" id="floor-main">
 <svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="g1" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1560" height="1000" fill="#12121f"/><rect width="1560" height="1000" fill="url(#g1)"/>
-<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v38  (9px = 1ft)   Master suite wing BEHIND garage   North &#8593; top</text>
+<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v35  (9px = 1ft)   Master suite wing BEHIND garage   North &#8593; top</text>
 <text x="600" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Single-story master wing north of garage | Living 811 sf + Kitchen 520 sf (larger) | All doors 36&quot; &#9855; | Hover rooms</text>
 <rect x="60" y="50" width="1080" height="13" fill="#0d1a0d" stroke="#27ae60" stroke-width=".7" rx="2"/>
 <text x="600" y="59" font-family="Segoe UI" font-size="6.5" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855;  36&quot;+ DOORS | 42&quot; ENTRY | ZERO-STEP | 5&#39; TURNS | ROLL-IN SHOWER | 36&quot; COMFORT VANITIES | LEVER HANDLES | LIFT-READY STAIR</text>
@@ -400,7 +401,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <line x1="40" y1="298" x2="40" y2="568" stroke="#666" stroke-width="1"/><line x1="35" y1="298" x2="45" y2="298" stroke="#666" stroke-width="1"/><line x1="35" y1="568" x2="45" y2="568" stroke="#666" stroke-width="1"/><text x="30" y="433" font-family="Segoe UI" font-size="8" fill="#666" text-anchor="middle" transform="rotate(-90,30,433)">30' garage</text>
 <rect x="1230" y="64" width="310" height="880" fill="#0d0d1a" stroke="#1a1a2a" rx="4"/>
 <text x="1385" y="84" font-family="Segoe UI" font-size="10" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR GUIDE</text>
-<text x="1385" y="98" font-family="Segoe UI" font-size="8" fill="#00d4ff" text-anchor="middle" font-weight="700" id="floorTotal-main">MAIN FLOOR TOTAL</text>
+<text x="1385" y="97" font-family="Segoe UI" font-size="7.5" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855; Accessible | Hover rooms</text>
 <rect x="1238" y="108" width="12" height="9" fill="#2d1b4e" stroke="#9b59b6" rx="1"/>
 <text x="1256" y="116" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">MASTER BR — 24x26 = 624 (nearly square) &#10003;</text>
 <rect x="1238" y="122" width="12" height="9" fill="#1a1a3a" stroke="#5dade2" rx="1"/>
@@ -463,7 +464,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <div class="fl" id="floor-upper">
 <svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
 <defs><pattern id="g2" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1560" height="1000" fill="#12121f"/><rect width="1560" height="1000" fill="url(#g2)"/>
-<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v38 — man cave above garage; master wing is single-story below</text>
+<text x="600" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v35 — man cave above garage; master wing is single-story below</text>
 <text x="600" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Bigger open-to-below + loft over the larger great room | Wing = vaulted master (no upper floor)</text>
 <rect x="492" y="64" width="648" height="504" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="6,4" opacity=".4"/>
 <rect x="60" y="298" width="432" height="270" fill="none" stroke="#f39c12" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
@@ -636,7 +637,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 <line x1="40" y1="298" x2="40" y2="568" stroke="#f39c12" stroke-width="1"/><line x1="35" y1="298" x2="45" y2="298" stroke="#f39c12" stroke-width="1"/><line x1="35" y1="568" x2="45" y2="568" stroke="#f39c12" stroke-width="1"/><text x="30" y="433" font-family="Segoe UI" font-size="8" fill="#f39c12" text-anchor="middle" transform="rotate(-90,30,433)">30' man cave</text>
 <rect x="1230" y="64" width="310" height="640" fill="#0d0d1a" stroke="#1a1a2a" rx="4"/>
 <text x="1385" y="84" font-family="Segoe UI" font-size="10" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR GUIDE</text>
-<text x="1385" y="98" font-family="Segoe UI" font-size="8" fill="#00d4ff" text-anchor="middle" font-weight="700" id="floorTotal-upper">UPPER FLOOR TOTAL</text>
+<text x="1385" y="98" font-family="Segoe UI" font-size="9" fill="#00d4ff" text-anchor="middle" font-weight="700" id="floorTotal-upper">UPPER FLOOR TOTAL</text>
 <rect x="1238" y="108" width="12" height="9" fill="#0d0d14" stroke="#9b59b6" rx="1"/>
 <text x="1256" y="116" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">No upper floor over master wing</text>
 <rect x="1238" y="123" width="12" height="9" fill="#1f1a0a" stroke="#f39c12" rx="1"/>
@@ -858,12 +859,9 @@ function openNoteFromPin(id){if(!document.getElementById('noteWrap').classList.c
 function copyNotes(){const t=notes.map(n=>'['+(n.done?'DONE':'OPEN')+'] '+n.who+' - '+n.room+(n.pos?' (pinned)':'')+' ('+n.ts+')\n'+n.text).join('\n\n');const full='BARNDO FLOOR PLAN - CHANGE REQUESTS\n\n'+(t||'(none)');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(full).then(()=>setSync('Copied - paste into a text to share')).catch(()=>setSync('Copy failed'));}else{const ta=document.createElement('textarea');ta.value=full;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');setSync('Copied');}catch(e){}ta.remove();}}
 
 /* ================= version history + update banner ================= */
-const APP_VERSION="38";
+const APP_VERSION="35";
 const VERSION_PATH="/barndo_floorplan_version.json",CHANGELOG_PATH="/barndo_floorplan_changelog.json";
 const CHANGELOG=[
- {v:"38",items:["Fixed the main-floor legend &#8212; it now shows Living ~5,180 sf and Garage ~1,440 sf (that line was missing before)"]},
- {v:"37",items:["Legend now shows living space and garage separately for each floor","Archived (old) versions pop up a warning before you make a change"]},
- {v:"36",items:["Added a version picker (top bar) to pull up and browse any past layout","Each archived version has a &#8216;back to latest&#8217; link"]},
  {v:"35",items:["Moved the double-sided fireplace to the north end of the master bedroom / sitting-room wall"]},
  {v:"34",items:["Replaced the covered porch with a 22&#39;-wide gabled entry portico over the front door"]},
  {v:"33",items:["Covered porch enlarged to a full-width 72&#39; x 12&#39; front porch (was a tiny stub)","Added a dish-washing sink &amp; faucet on the north wall by the range"]},
@@ -916,25 +914,25 @@ async function checkVersion(){
 }
 
 
-function floorTotals(floorId){
+function floorTotalSqft(floorId){
   var svg=document.querySelector('#floor-'+floorId+' svg'); if(!svg)return null;
-  var excl=/OPEN TO BELOW|WING BELOW|PORCH|DECK|PATIO|COURTYARD|GABLED ENTRY/i, rects=[];
+  var excl=/OPEN TO BELOW|WING BELOW|PORCH|DECK|PATIO|COURTYARD/i, rects=[];
   svg.querySelectorAll('g.room').forEach(function(g){
     var lbl=g.getAttribute('data-label')||''; if(excl.test(lbl))return;
     var r=g.querySelector('rect'); if(!r)return;
     var x=+r.getAttribute('x'),y=+r.getAttribute('y'),w=+r.getAttribute('width'),hh=+r.getAttribute('height');
-    if(!w||!hh)return; rects.push({x:x,y:y,w:w,h:hh,x2:x+w,y2:y+hh,a:w*hh,g:/CAR GARAGE/i.test(lbl)});
+    if(!w||!hh)return; rects.push({x:x,y:y,w:w,h:hh,x2:x+w,y2:y+hh,a:w*hh});
   });
-  var total=0, gar=0;
+  var total=0;
   rects.forEach(function(r,i){
     var contained=rects.some(function(o,j){return j!==i && o.a>r.a && r.x>=o.x-1 && r.y>=o.y-1 && r.x2<=o.x2+1 && r.y2<=o.y2+1;});
-    if(!contained){ total+=r.a; if(r.g) gar+=r.a; }
+    if(!contained) total+=r.a;
   });
-  return {living:Math.round((total-gar)/81), garage:Math.round(gar/81)};
+  return Math.round(total/81);
 }
 function setFloorTotals(){
-  var m=document.getElementById('floorTotal-main'); if(m){var t=floorTotals('main'); if(t)m.textContent='Living: ~'+t.living.toLocaleString()+' sf   \u00b7   Garage: ~'+t.garage.toLocaleString()+' sf';}
-  var u=document.getElementById('floorTotal-upper'); if(u){var t2=floorTotals('upper'); if(t2)u.textContent='Living: ~'+t2.living.toLocaleString()+' sf finished';}
+  var m=document.getElementById('floorTotal-main'); if(m){var mt=floorTotalSqft('main'); if(mt)m.textContent='MAIN FLOOR: ~'+mt.toLocaleString()+' sq ft under roof';}
+  var u=document.getElementById('floorTotal-upper'); if(u){var ut=floorTotalSqft('upper'); if(ut)u.textContent='UPPER FLOOR: ~'+ut.toLocaleString()+' sq ft finished';}
 }
 setFloorTotals();
 setSyncLight(FIREBASE_URL?"saved":"local");
@@ -945,4 +943,5 @@ checkVersion();
 setInterval(checkVersion,60000);
 setInterval(loadNotes,30000);
 window.addEventListener('focus',()=>{checkVersion();loadNotes();});
-</script></body></html>
+</script><script>(function(){var t=0;function wrap(){if(typeof saveNotes==='function'&&!saveNotes.__w){var o=saveNotes;window.saveNotes=async function(){if(!window.__archOK){if(!confirm("This is an OLDER, archived version of the floor plan.\n\nChanges made here won't carry over to the current design. Continue anyway?"))return;window.__archOK=true;}return o.apply(this,arguments);};window.saveNotes.__w=true;}else if(typeof saveNotes!=='function'&&t++<20){setTimeout(wrap,300);}}wrap();})();</script>
+</body></html>

@@ -93,6 +93,7 @@ body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow
 .sync-dot.error{background:#e74c3c;box-shadow:0 0 6px #e74c3c;}
 @keyframes syncpulse{0%,100%{opacity:1;}50%{opacity:.25;}}
 </style></head><body>
+<a href="../index.html" title="return to the current version" style="position:fixed;bottom:12px;right:14px;z-index:99999;background:#8a6a30;color:#fff;padding:5px 11px;border-radius:7px;font:600 11px 'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.5);">&#128193; archived v38 &#183; back to latest &#9658;</a>
 <!--BARNDO_APP_VERSION=38-->
 <!--BARNDO_CHANGELOG=Fixed the main-floor legend so it now shows Living and Garage square footage (that element was never added correctly before).-->
 <!--BARNDO_CHANGELOG=Change requests now drop pins on the plan where you tap; your wife's notes auto-sync in every ~30s; this banner shows what changed.-->
@@ -945,4 +946,5 @@ checkVersion();
 setInterval(checkVersion,60000);
 setInterval(loadNotes,30000);
 window.addEventListener('focus',()=>{checkVersion();loadNotes();});
-</script></body></html>
+</script><script>(function(){var t=0;function wrap(){if(typeof saveNotes==='function'&&!saveNotes.__w){var o=saveNotes;window.saveNotes=async function(){if(!window.__archOK){if(!confirm("This is an OLDER, archived version of the floor plan.\n\nChanges made here won't carry over to the current design. Continue anyway?"))return;window.__archOK=true;}return o.apply(this,arguments);};window.saveNotes.__w=true;}else if(typeof saveNotes!=='function'&&t++<20){setTimeout(wrap,300);}}wrap();})();</script>
+</body></html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kelly's Barndominium v10</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#12121f;color:#e0e0e0;font-family:'Segoe UI',sans-serif;overflow:hidden;height:100vh;display:flex;flex-direction:column;}
+#hdr{padding:7px 14px;background:#0d0d1a;border-bottom:1px solid #1a1a2a;display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap;}
+#hdr h1{color:#00d4ff;font-size:.88rem;letter-spacing:2px;text-transform:uppercase;}
+.tabs{display:flex;gap:5px;}
+.tab{padding:5px 14px;border-radius:3px;cursor:pointer;font-size:.78rem;font-weight:600;border:1.5px solid #333;background:#16213e;color:#777;transition:all .2s;user-select:none;}
+.tab.active{background:#00d4ff;color:#000;border-color:#00d4ff;}
+#ctrl{display:flex;gap:5px;margin-left:auto;align-items:center;}
+.cb{padding:4px 10px;background:#1e1e3a;border:1px solid #333;color:#ccc;border-radius:3px;cursor:pointer;font-size:.78rem;}
+.cb:hover{background:#2a2a4a;}
+#zlbl{color:#888;font-size:.75rem;min-width:40px;text-align:center;}
+#wrap{flex:1;overflow:hidden;position:relative;cursor:grab;}
+#wrap.drag{cursor:grabbing;}
+#cv{position:absolute;transform-origin:0 0;}
+.fl{display:none;}.fl.on{display:block;}
+.tt{position:fixed;background:#1a1a2e;border:1px solid #00d4ff;color:#e0e0e0;padding:7px 11px;border-radius:4px;font-size:11px;pointer-events:none;z-index:999;display:none;line-height:1.6;max-width:310px;}
+</style></head><body>
+<a href="../index.html" title="return to the current version" style="position:fixed;bottom:12px;right:14px;z-index:99999;background:#8a6a30;color:#fff;padding:5px 11px;border-radius:7px;font:600 11px 'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.5);">&#128193; archived v10 &#183; back to latest &#9658;</a>
+<div id="hdr"><h1>Kelly's Barndominium v10</h1>
+<div class="tabs">
+<div class="tab active" onclick="show('main',this)">Main Floor</div>
+<div class="tab" onclick="show('upper',this)">Upper Floor</div>
+<div class="tab" onclick="show('overlay',this)">Overlay</div>
+</div>
+<div id="ctrl"><button class="cb" onclick="zm(-.15)">-</button><span id="zlbl">62%</span>
+<button class="cb" onclick="zm(.15)">+</button><button class="cb" onclick="rst()">Reset</button></div></div>
+<div id="wrap"><div id="cv">
+<div class="fl on" id="floor-main">
+<svg width="1400" height="1120" viewBox="0 0 1400 1120" xmlns="http://www.w3.org/2000/svg">
+<defs><pattern id="g1" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1400" height="1120" fill="#12121f"/><rect width="1400" height="1120" fill="url(#g1)"/>
+<text x="384" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR  v10  (9px = 1ft)   North &#8593; top   South &#8595; front/garage</text>
+<text x="384" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Right-sized layout | All doors 36&quot; accessible (cyan) | Vanities 36&quot; comfort height | Hover rooms</text>
+<rect x="60" y="50" width="648" height="13" fill="#0d1a0d" stroke="#27ae60" stroke-width=".7" rx="2"/>
+<text x="384" y="59" font-family="Segoe UI" font-size="6.5" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855;  36&quot;+ DOORS (34&quot; CLEAR) | 42&quot; ENTRY | ZERO-STEP | 5&#39; TURNING RADII | ROLL-IN SHOWER | 36&quot; COMFORT VANITIES | LEVER HANDLES | LIFT-READY STAIR</text>
+<g class="room" data-label="MASTER BEDROOM" data-dim="36&#39; x 17&#39; = 624 sq ft|In your 500-650 target|Extends to center-hall edge (vestibule removed)|Entry door direct from center hall|&#9855; 5&#39; turning radius|West patio door">
+<rect x="60" y="64" width="324" height="156" fill="#2d1b4e" stroke="#9b59b6" stroke-width="2" opacity="1" rx="1"/>
+<text x="222" y="108" font-family="Segoe UI" font-size="12" fill="#9b59b6" text-anchor="middle" font-weight="700">MASTER BEDROOM</text>
+<text x="222" y="124" font-family="Segoe UI" font-size="8.5" fill="#888" text-anchor="middle" font-weight="normal">36' x 17' = 624 sf  &#9855;</text>
+<rect x="150" y="136" width="150" height="62" fill="#200f38" stroke="#7d3c98" stroke-width="1.5" rx="3"/>
+<rect x="150" y="136" width="150" height="20" fill="#1a0c30" stroke="#7d3c98" stroke-width=".8" rx="2"/>
+<text x="225" y="172" font-family="Segoe UI" font-size="8" fill="#7d3c98" text-anchor="middle" font-weight="normal">King Bed</text>
+<rect x="124" y="141" width="22" height="26" fill="#200f38" stroke="#7d3c98" stroke-width=".8" rx="2"/>
+<rect x="304" y="141" width="22" height="26" fill="#200f38" stroke="#7d3c98" stroke-width=".8" rx="2"/>
+<circle cx="96" cy="112" r="27" fill="none" stroke="#27ae60" stroke-width=".8" stroke-dasharray="4,3" opacity=".45"/><text x="96" y="115" font-family="Segoe UI" font-size="5.5" fill="#27ae60" text-anchor="middle" opacity=".7">5&#39;</text>
+<rect x="96" y="64" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="126" y1="64" x2="126" y2="71" stroke="#3498db" stroke-width=".8"/>
+<rect x="204" y="64" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="234" y1="64" x2="234" y2="71" stroke="#3498db" stroke-width=".8"/>
+<rect x="300" y="64" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="330" y1="64" x2="330" y2="71" stroke="#3498db" stroke-width=".8"/>
+<rect x="60" y="106" width="7" height="72" fill="#27ae60" stroke="#2ecc71" stroke-width="1.5" rx="1"/>
+<path d="M60 106 L18 106 L18 178 L60 178" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="4,2"/>
+<text x="38" y="100" font-family="Segoe UI" font-size="6.5" fill="#2ecc71" text-anchor="middle">&#8592; WEST PATIO 6&#39;</text>
+<rect x="381" y="96" width="6" height="27" fill="#00d4ff" rx="1"/><path d="M384 96 Q357 96 357 123" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+<text x="376" y="90" font-family="Segoe UI" font-size="5.5" fill="#00d4ff" text-anchor="end" font-weight="normal">hall entry</text>
+<rect x="105" y="217" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M105 220 Q105 247 132 247" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+<text x="118" y="242" font-family="Segoe UI" font-size="5.5" fill="#af7ac5" text-anchor="middle" font-weight="normal">Her</text>
+<rect x="200" y="217" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M200 220 Q200 247 227 247" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+<text x="213" y="242" font-family="Segoe UI" font-size="5.5" fill="#5dade2" text-anchor="middle" font-weight="normal">bath</text>
+<rect x="290" y="217" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M290 220 Q290 247 317 247" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+<text x="303" y="242" font-family="Segoe UI" font-size="5.5" fill="#af7ac5" text-anchor="middle" font-weight="normal">His</text>
+</g>
+<g class="room" data-label="HER CLOSET" data-dim="15&#39; x 10&#39; = 150 sq ft|Between bedroom and bath|Walk-in &#9855;">
+<rect x="60" y="220" width="135" height="90" fill="#2a1a2a" stroke="#af7ac5" stroke-width="2" opacity="1" rx="1"/>
+<text x="127" y="258" font-family="Segoe UI" font-size="9" fill="#af7ac5" text-anchor="middle" font-weight="700">HER CLOSET</text>
+<text x="127" y="272" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">15' x 10'</text>
+<line x1="68" y1="236" x2="187" y2="236" stroke="#af7ac5" stroke-width=".7" stroke-dasharray="3,2"/>
+<line x1="68" y1="292" x2="187" y2="292" stroke="#af7ac5" stroke-width=".7" stroke-dasharray="3,2"/>
+</g>
+<g class="room" data-label="SUITE CONNECTOR" data-dim="4&#39; x 10&#39; (48&quot; wide &#9855;)|Direct bedroom &#8594; bath path|Flanked by His &amp; Her closets">
+<rect x="195" y="220" width="36" height="90" fill="#1c1626" stroke="#8a6a9b" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="213" y="268" font-family="Segoe UI" font-size="6.5" fill="#8a6a9b" text-anchor="middle" transform="rotate(-90,213,268)">to bath</text>
+<rect x="200" y="307" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M200 310 Q200 337 227 337" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+</g>
+<g class="room" data-label="HIS CLOSET" data-dim="17&#39; x 10&#39; = 170 sq ft|Between bedroom and bath|Hidden vault door (south)">
+<rect x="231" y="220" width="153" height="90" fill="#2a1a2a" stroke="#af7ac5" stroke-width="2" opacity="1" rx="1"/>
+<text x="307" y="258" font-family="Segoe UI" font-size="9" fill="#af7ac5" text-anchor="middle" font-weight="700">HIS CLOSET</text>
+<text x="307" y="272" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">17' x 10'</text>
+<line x1="239" y1="236" x2="376" y2="236" stroke="#af7ac5" stroke-width=".7" stroke-dasharray="3,2"/>
+<rect x="315" y="307" width="48" height="6" fill="#e74c3c" rx="1"/>
+<text x="339" y="303" font-family="Segoe UI" font-size="5.5" fill="#e74c3c" text-anchor="middle" font-weight="normal">&#8595; hidden vault</text>
+</g>
+<g class="room" data-label="VAULT / STORM / GUN ROOM" data-dim="10&#39; x 10&#39; = 100 sq ft|Reinforced concrete/steel|Hidden door from His Closet|Storm shelter">
+<rect x="294" y="310" width="90" height="90" fill="#0f0f0f" stroke="#e74c3c" stroke-width="2.5" opacity="1" rx="1"/>
+<text x="339" y="344" font-family="Segoe UI" font-size="9" fill="#e74c3c" text-anchor="middle" font-weight="700">VAULT</text>
+<text x="339" y="357" font-family="Segoe UI" font-size="8" fill="#e74c3c" text-anchor="middle" font-weight="700">STORM/GUN</text>
+<text x="339" y="370" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">10'x10'</text>
+<rect x="326" y="378" width="26" height="14" fill="#1a0000" stroke="#e74c3c" stroke-width="1" rx="1"/>
+<circle cx="339" cy="385" r="5" fill="none" stroke="#e74c3c" stroke-width="1"/>
+</g>
+<g class="room" data-label="MASTER BATH" data-dim="19&#39; x 17&#39; = 317 sq ft|Entered via connector between the closets|ONE roll-in steam shower|Double vanity @ 36&quot; comfort height|Soaking tub + toilet|&#9855; grab bars, 5&#39; turn">
+<rect x="60" y="310" width="171" height="150" fill="#1a1a3a" stroke="#5dade2" stroke-width="2" opacity="1" rx="1"/>
+<text x="145" y="344" font-family="Segoe UI" font-size="10" fill="#5dade2" text-anchor="middle" font-weight="700">MASTER BATH</text>
+<text x="145" y="358" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">19' x 17' = 317 sf  &#9855;</text>
+<rect x="70" y="368" width="30" height="20" fill="#0d0d1a" stroke="#5dade2" stroke-width="1" rx="6"/><circle cx="85" cy="378" r="3" fill="#5dade2"/>
+<rect x="106" y="368" width="30" height="20" fill="#0d0d1a" stroke="#5dade2" stroke-width="1" rx="6"/><circle cx="121" cy="378" r="3" fill="#5dade2"/>
+<text x="103" y="404" font-family="Segoe UI" font-size="6" fill="#5dade2" text-anchor="middle" font-weight="normal">dbl vanity 36&quot; comfort ht</text>
+<rect x="196" y="318" width="20" height="30" fill="#1a1a2e" stroke="#95a5a6" stroke-width="1" rx="4"/><ellipse cx="206" cy="339" rx="8" ry="8" fill="none" stroke="#95a5a6" stroke-width="1"/><rect x="198" y="318" width="16" height="9" fill="#1a1a2e" stroke="#95a5a6" stroke-width=".8" rx="2"/>
+<text x="206" y="362" font-family="Segoe UI" font-size="6" fill="#95a5a6" text-anchor="middle" font-weight="normal">toilet</text>
+<rect x="70" y="412" width="58" height="40" fill="#0d1520" stroke="#1abc9c" stroke-width="1.5" rx="2"/><circle cx="99" cy="425" r="8" fill="none" stroke="#1abc9c" stroke-width="1.5"/><line x1="91" y1="425" x2="107" y2="425" stroke="#1abc9c" stroke-width=".8"/><line x1="99" y1="417" x2="99" y2="433" stroke="#1abc9c" stroke-width=".8"/>
+<text x="99" y="462" font-family="Segoe UI" font-size="6" fill="#1abc9c" text-anchor="middle" font-weight="normal">STEAM roll-in</text>
+<rect x="146" y="412" width="76" height="40" fill="#0d1520" stroke="#5dade2" stroke-width="1.5" rx="8"/><rect x="152" y="418" width="64" height="28" fill="none" stroke="#5dade2" stroke-width=".7" rx="6"/>
+<text x="184" y="462" font-family="Segoe UI" font-size="6" fill="#5dade2" text-anchor="middle" font-weight="normal">soaking tub</text>
+<rect x="60" y="376" width="7" height="50" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="60" y1="401" x2="67" y2="401" stroke="#3498db" stroke-width=".8"/>
+</g>
+<g class="room" data-label="LINEN / BATH STORAGE" data-dim="7&#39; x 10&#39; = 70 sq ft|Towels &amp; supplies|Door from master bath">
+<rect x="231" y="310" width="63" height="90" fill="#181828" stroke="#666" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="262" y="350" font-family="Segoe UI" font-size="7.5" fill="#777" text-anchor="middle" font-weight="normal">LINEN</text>
+<text x="262" y="363" font-family="Segoe UI" font-size="6.5" fill="#555" text-anchor="middle" font-weight="normal">7'x10'</text>
+<rect x="228" y="340" width="6" height="27" fill="#00d4ff" rx="1"/><path d="M231 340 Q258 340 258 367" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+</g>
+<g class="room" data-label="STORAGE" data-dim="17&#39; x 7&#39; = 113 sq ft|General storage|Door from center hall">
+<rect x="231" y="400" width="153" height="60" fill="#181828" stroke="#555" stroke-width="1.5" stroke-dasharray="4,2" opacity="1" rx="1"/>
+<text x="307" y="433" font-family="Segoe UI" font-size="7.5" fill="#666" text-anchor="middle" font-weight="normal">STORAGE  17&#39;x7&#39;</text>
+<rect x="381" y="415" width="6" height="27" fill="#00d4ff" rx="1"/><path d="M384 415 Q357 415 357 442" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+</g>
+<g class="room" data-label="MUD ROOM" data-dim="13&#39; x 12&#39; = 152 sq ft|&#9855; Garage entry decompression|Bench, cubbies, hooks|Door from garage (36&quot;)">
+<rect x="60" y="460" width="114" height="108" fill="#2a2218" stroke="#e67e22" stroke-width="2" opacity="1" rx="1"/>
+<text x="117" y="500" font-family="Segoe UI" font-size="9" fill="#e67e22" text-anchor="middle" font-weight="700">MUD ROOM</text>
+<text x="117" y="513" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">13'x12' &#9855;</text>
+<rect x="66" y="466" width="102" height="13" fill="#1e1a10" stroke="#8a6a30" stroke-width=".8" rx="1"/>
+<text x="117" y="476" font-family="Segoe UI" font-size="6" fill="#8a6a30" text-anchor="middle" font-weight="normal">bench + cubbies</text>
+<rect x="96" y="565" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M96 568 Q96 541 123 541" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/><text x="109" y="562" font-family="Segoe UI" font-size="5.5" fill="#00d4ff" text-anchor="middle" font-weight="normal">36&quot;</text>
+<text x="117" y="556" font-family="Segoe UI" font-size="6" fill="#e67e22" text-anchor="middle" font-weight="normal">&#8595; garage</text>
+</g>
+<g class="room" data-label="LAUNDRY" data-dim="11&#39; x 12&#39; = 136 sq ft|&#9855; Front-load W/D, accessible height|Folding counter + sink">
+<rect x="174" y="460" width="102" height="108" fill="#1a2a1a" stroke="#27ae60" stroke-width="2" opacity="1" rx="1"/>
+<text x="225" y="500" font-family="Segoe UI" font-size="9" fill="#27ae60" text-anchor="middle" font-weight="700">LAUNDRY</text>
+<text x="225" y="513" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">11'x12' &#9855;</text>
+<rect x="182" y="466" width="30" height="30" fill="#152015" stroke="#27ae60" stroke-width="1" rx="2"/><circle cx="197" cy="481" r="9" fill="none" stroke="#27ae60" stroke-width="1"/>
+<text x="197" y="485" font-family="Segoe UI" font-size="6" fill="#27ae60" text-anchor="middle" font-weight="normal">W</text>
+<rect x="216" y="466" width="30" height="30" fill="#152015" stroke="#27ae60" stroke-width="1" rx="2"/><circle cx="231" cy="481" r="9" fill="none" stroke="#27ae60" stroke-width="1"/>
+<text x="231" y="485" font-family="Segoe UI" font-size="6" fill="#27ae60" text-anchor="middle" font-weight="normal">D</text>
+<text x="214" y="506" font-family="Segoe UI" font-size="5.5" fill="#27ae60" text-anchor="middle" font-weight="normal">front-load &#9855;</text>
+<rect x="240" y="500" width="30" height="20" fill="#0d0d1a" stroke="#5dade2" stroke-width="1" rx="6"/><circle cx="255" cy="510" r="3" fill="#5dade2"/>
+</g>
+<g class="room" data-label="MECHANICAL ROOM" data-dim="12&#39; x 12&#39; = 144 sq ft|NEW|Well pressure tank + water softener/treatment (rural well)|Water heater(s), HVAC air handler|Electrical panel, networking">
+<rect x="276" y="460" width="108" height="108" fill="#241a1a" stroke="#c0392b" stroke-width="2" opacity="1" rx="1"/>
+<text x="330" y="498" font-family="Segoe UI" font-size="9" fill="#c0392b" text-anchor="middle" font-weight="700">MECHANICAL</text>
+<text x="330" y="511" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">12' x 12'</text>
+<text x="330" y="525" font-family="Segoe UI" font-size="6.5" fill="#888" text-anchor="middle" font-weight="normal">well · HVAC · water</text>
+<text x="330" y="537" font-family="Segoe UI" font-size="6.5" fill="#888" text-anchor="middle" font-weight="normal">heater · electrical</text>
+<rect x="284" y="466" width="20" height="24" fill="#1a1010" stroke="#c0392b" stroke-width=".8" rx="1"/>
+<rect x="308" y="466" width="20" height="24" fill="#1a1010" stroke="#c0392b" stroke-width=".8" rx="1"/>
+<circle cx="352" cy="478" r="11" fill="#1a1010" stroke="#c0392b" stroke-width=".8"/>
+<rect x="381" y="500" width="6" height="27" fill="#00d4ff" rx="1"/><path d="M384 500 Q357 500 357 527" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+</g>
+<g class="room" data-label="CENTER HALL" data-dim="4&#39; wide spine (48&quot;)|&#9855; Wheelchair-width circulation|Connects foyer, master wing, powder, stair, great room">
+<rect x="384" y="64" width="36" height="384" fill="#141420" stroke="#3a4a5a" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="402" y="300" font-family="Segoe UI" font-size="8" fill="#4a6a7a" text-anchor="middle" transform="rotate(-90,402,300)">CENTER HALL — 48&quot; wide &#9855;</text>
+</g>
+<g class="room" data-label="POWDER ROOM" data-dim="8&#39; x 8&#39; = 64 sq ft|Guest half bath|&#9855; 36&quot; comfort vanity + toilet">
+<rect x="420" y="64" width="72" height="72" fill="#1a1a2e" stroke="#9b59b6" stroke-width="2" opacity="1" rx="1"/>
+<text x="456" y="96" font-family="Segoe UI" font-size="8" fill="#9b59b6" text-anchor="middle" font-weight="700">POWDER</text>
+<text x="456" y="108" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">8'x8' &#9855;</text>
+<rect x="428" y="72" width="20" height="30" fill="#1a1a2e" stroke="#95a5a6" stroke-width="1" rx="4"/><ellipse cx="438" cy="93" rx="8" ry="8" fill="none" stroke="#95a5a6" stroke-width="1"/><rect x="430" y="72" width="16" height="9" fill="#1a1a2e" stroke="#95a5a6" stroke-width=".8" rx="2"/>
+<rect x="454" y="74" width="30" height="20" fill="#0d0d1a" stroke="#5dade2" stroke-width="1" rx="6"/><circle cx="469" cy="84" r="3" fill="#5dade2"/>
+</g>
+<g class="room" data-label="COAT CLOSET" data-dim="8&#39; x 7&#39; = 56 sq ft|Entry coat + guest storage">
+<rect x="420" y="136" width="72" height="64" fill="#181828" stroke="#666" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="456" y="172" font-family="Segoe UI" font-size="8" fill="#777" text-anchor="middle" font-weight="normal">COAT</text>
+</g>
+<g class="room" data-label="STAIRCASE" data-dim="8&#39; wide x 27&#39; run|Wide barndo stair|&#9855; Lift-chair rail pre-wired + elevator-ready|Rises to upper landing">
+<rect x="420" y="200" width="72" height="248" fill="#1c1c2e" stroke="#7f8c8d" stroke-width="2" opacity="1" rx="1"/>
+<text x="456" y="300" font-family="Segoe UI" font-size="10" fill="#95a5a6" text-anchor="middle" font-weight="700">STAIR</text>
+<text x="456" y="314" font-family="Segoe UI" font-size="8" fill="#666" text-anchor="middle" font-weight="normal">8' wide</text>
+<text x="456" y="327" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="middle" font-weight="normal">lift-ready &#9855;</text>
+<line x1="420" y1="219" x2="492" y2="219" stroke="#555" stroke-width="1"/><line x1="420" y1="238" x2="492" y2="238" stroke="#555" stroke-width="1"/><line x1="420" y1="257" x2="492" y2="257" stroke="#555" stroke-width="1"/><line x1="420" y1="276" x2="492" y2="276" stroke="#555" stroke-width="1"/><line x1="420" y1="295" x2="492" y2="295" stroke="#555" stroke-width="1"/><line x1="420" y1="314" x2="492" y2="314" stroke="#555" stroke-width="1"/><line x1="420" y1="334" x2="492" y2="334" stroke="#555" stroke-width="1"/><line x1="420" y1="353" x2="492" y2="353" stroke="#555" stroke-width="1"/><line x1="420" y1="372" x2="492" y2="372" stroke="#555" stroke-width="1"/><line x1="420" y1="391" x2="492" y2="391" stroke="#555" stroke-width="1"/><line x1="420" y1="410" x2="492" y2="410" stroke="#555" stroke-width="1"/><line x1="420" y1="429" x2="492" y2="429" stroke="#555" stroke-width="1"/>
+<text x="456" y="444" font-family="Segoe UI" font-size="9" fill="#555" text-anchor="middle" font-weight="normal">&#8593; UP</text>
+<rect x="426" y="206" width="20" height="20" fill="#0d1a0d" stroke="#27ae60" stroke-width="1" rx="2"/>
+<text x="436" y="220" font-family="Segoe UI" font-size="9" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855;</text>
+</g>
+<g class="room" data-label="FOYER" data-dim="8&#39; x 14&#39; = 115 sq ft|Narrow gallery entry|&#9855; 42&quot; front door, zero-step|Covered porch outside">
+<rect x="636" y="438" width="72" height="130" fill="#161625" stroke="#d4ac0d" stroke-width="2" opacity="1" rx="1"/>
+<text x="672" y="494" font-family="Segoe UI" font-size="9.5" fill="#d4ac0d" text-anchor="middle" font-weight="700">FOYER</text>
+<text x="672" y="508" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">8' x 14'  &#9855;</text>
+<rect x="650" y="565" width="44" height="6" fill="#d4ac0d" rx="1"/>
+<path d="M650 565 Q650 533 682 533" fill="none" stroke="#d4ac0d" stroke-width=".8" stroke-dasharray="3,2"/>
+<text x="672" y="560" font-family="Segoe UI" font-size="6.5" fill="#d4ac0d" text-anchor="middle" font-weight="normal">&#9660; 42&quot; &#9855;</text>
+</g>
+<g class="room" data-label="LIVING ROOM" data-dim="24&#39; x 25&#39; = 607 sq ft|Right-sized (was 1050)|North wall windows|OPEN ABOVE — vaulted to loft|Fireplace + east patio door|Coffee bar NE">
+<rect x="492" y="64" width="216" height="228" fill="#1a2a3a" stroke="#3498db" stroke-width="2.5" opacity="1" rx="1"/>
+<text x="600" y="150" font-family="Segoe UI" font-size="13" fill="#3498db" text-anchor="middle" font-weight="700">LIVING ROOM</text>
+<text x="600" y="167" font-family="Segoe UI" font-size="8.5" fill="#888" text-anchor="middle" font-weight="normal">24' x 25' = 607 sf</text>
+<text x="600" y="181" font-family="Segoe UI" font-size="7.5" fill="#3498db" text-anchor="middle" font-weight="normal">OPEN ABOVE (VAULTED)  &#9855;</text>
+<circle cx="560" cy="230" r="27" fill="none" stroke="#27ae60" stroke-width=".8" stroke-dasharray="4,3" opacity=".45"/><text x="560" y="233" font-family="Segoe UI" font-size="5.5" fill="#27ae60" text-anchor="middle" opacity=".7">5&#39;</text>
+<rect x="520" y="284" width="70" height="10" fill="#7b241c" stroke="#e74c3c" stroke-width="1.5" rx="1"/>
+<text x="555" y="281" font-family="Segoe UI" font-size="6.5" fill="#e74c3c" text-anchor="middle" font-weight="normal">FIREPLACE</text>
+<rect x="510" y="64" width="70" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="545" y1="64" x2="545" y2="71" stroke="#3498db" stroke-width=".8"/>
+<rect x="600" y="64" width="70" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="635" y1="64" x2="635" y2="71" stroke="#3498db" stroke-width=".8"/>
+<rect x="701" y="120" width="7" height="90" fill="#27ae60" stroke="#2ecc71" stroke-width="1.5" rx="1"/>
+<path d="M708 120 L750 120 L750 210 L708 210" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="4,2"/>
+<text x="726" y="168" font-family="Segoe UI" font-size="6.5" fill="#2ecc71" text-anchor="middle" transform="rotate(90,726,168)">PATIO 8&#39; &#9855; &#8594; DECK</text>
+<line x1="492" y1="292" x2="708" y2="292" stroke="#3498db" stroke-width="1" stroke-dasharray="5,3"/>
+</g>
+<g class="room" data-label="COFFEE BAR" data-dim="8&#39; x 8&#39; = 64 sq ft|NE corner of living|Espresso, mini fridge, bar sink|Barndo staple">
+<rect x="636" y="64" width="72" height="72" fill="#1a1200" stroke="#f39c12" stroke-width="2" opacity="1" rx="1"/>
+<text x="672" y="98" font-family="Segoe UI" font-size="8.5" fill="#f39c12" text-anchor="middle" font-weight="700">COFFEE</text>
+<text x="672" y="111" font-family="Segoe UI" font-size="8.5" fill="#f39c12" text-anchor="middle" font-weight="700">BAR</text>
+<text x="672" y="124" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">8'x8'</text>
+<rect x="644" y="71" width="56" height="12" fill="#1a0f00" stroke="#f39c12" stroke-width=".8" rx="1"/>
+<rect x="670" y="88" width="30" height="20" fill="#0d0d1a" stroke="#5dade2" stroke-width="1" rx="6"/><circle cx="685" cy="98" r="3" fill="#5dade2"/>
+</g>
+<g class="room" data-label="KITCHEN" data-dim="24&#39; x 16&#39; gross &#8594; ~315 sq ft net|Bigger than before|&#9855; Knee-clearance island + counters|16&#39; island w/ prep sink + bar seating|Open to living + dining">
+<rect x="492" y="292" width="216" height="146" fill="#1a3a2a" stroke="#2ecc71" stroke-width="2" opacity="1" rx="1"/>
+<text x="576" y="332" font-family="Segoe UI" font-size="11" fill="#2ecc71" text-anchor="middle" font-weight="700">KITCHEN</text>
+<text x="576" y="347" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">24' x 16'  (~315 sf net)  &#9855;</text>
+<rect x="500" y="300" width="128" height="15" fill="#1c3a22" stroke="#2ecc71" stroke-width=".5"/>
+<rect x="508" y="300" width="44" height="15" fill="#1a2a1a" stroke="#e74c3c" stroke-width="1" rx="2"/>
+<text x="530" y="311" font-family="Segoe UI" font-size="6" fill="#e74c3c" text-anchor="middle" font-weight="normal">range</text>
+<rect x="596" y="300" width="30" height="34" fill="#222" stroke="#95a5a6" stroke-width="1" rx="2"/>
+<text x="611" y="320" font-family="Segoe UI" font-size="5.5" fill="#95a5a6" text-anchor="middle" font-weight="normal">fridge</text>
+<rect x="512" y="380" width="144" height="44" fill="#1f4a30" stroke="#2ecc71" stroke-width="1.5" rx="3"/>
+<text x="584" y="402" font-family="Segoe UI" font-size="7.5" fill="#2ecc71" text-anchor="middle" font-weight="normal">ISLAND 16&#39; (bar seating)</text>
+<rect x="573" y="386" width="30" height="20" fill="#0d0d1a" stroke="#5dade2" stroke-width="1" rx="6"/><circle cx="588" cy="396" r="3" fill="#5dade2"/>
+<rect x="534" y="292" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="564" y1="292" x2="564" y2="299" stroke="#3498db" stroke-width=".8"/>
+<line x1="492" y1="438" x2="636" y2="438" stroke="#2ecc71" stroke-width="1" stroke-dasharray="5,3"/>
+</g>
+<g class="room" data-label="WALK-IN PANTRY" data-dim="8&#39; x 9&#39; = 74 sq ft|Carved from kitchen NE corner|&#9855; 36&quot; aisle + door|Floor-to-ceiling shelves">
+<rect x="636" y="292" width="72" height="84" fill="#1a2a1a" stroke="#58d68d" stroke-width="2" opacity="1" rx="1"/>
+<text x="672" y="328" font-family="Segoe UI" font-size="9" fill="#58d68d" text-anchor="middle" font-weight="700">PANTRY</text>
+<text x="672" y="341" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">8'x9'</text>
+<line x1="644" y1="308" x2="700" y2="308" stroke="#2ecc71" stroke-width=".8" stroke-dasharray="3,2"/>
+<line x1="644" y1="322" x2="700" y2="322" stroke="#2ecc71" stroke-width=".8" stroke-dasharray="3,2"/>
+<rect x="633" y="330" width="6" height="27" fill="#00d4ff" rx="1"/><path d="M636 330 Q663 330 663 357" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+</g>
+<g class="room" data-label="DINING" data-dim="16&#39; x 14&#39; = 230 sq ft|Bigger than before|Seats 8-10 + island bar seating|&#9855; WC clear floor|Open to kitchen, den, foyer">
+<rect x="492" y="438" width="144" height="130" fill="#1a2d3a" stroke="#1abc9c" stroke-width="1.5" stroke-dasharray="6,3" opacity="1" rx="1"/>
+<text x="564" y="494" font-family="Segoe UI" font-size="9" fill="#1abc9c" text-anchor="middle" font-weight="700">DINING (open)</text>
+<text x="564" y="508" font-family="Segoe UI" font-size="7.5" fill="#666" text-anchor="middle" font-weight="normal">16' x 14' = 230 sf  &#9855;</text>
+<rect x="516" y="561" width="70" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="551" y1="561" x2="551" y2="568" stroke="#3498db" stroke-width=".8"/>
+</g>
+<g class="room" data-label="DEN / OFFICE" data-dim="12&#39; x 13&#39; = 160 sq ft|NEW &#8212; fills former dead corner south of stair|Office, den, or reading room|Opens to dining">
+<rect x="384" y="448" width="108" height="120" fill="#16202a" stroke="#4aa3c0" stroke-width="2" opacity="1" rx="1"/>
+<text x="438" y="500" font-family="Segoe UI" font-size="9" fill="#4aa3c0" text-anchor="middle" font-weight="700">DEN /</text>
+<text x="438" y="514" font-family="Segoe UI" font-size="9" fill="#4aa3c0" text-anchor="middle" font-weight="700">OFFICE</text>
+<text x="438" y="528" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">12'x13'  &#9855;</text>
+<rect x="408" y="561" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="438" y1="561" x2="438" y2="568" stroke="#3498db" stroke-width=".8"/>
+</g>
+<g class="room" data-label="3-CAR GARAGE" data-dim="48&#39; x 30&#39; = 1,440 sq ft|Door wall math: 2&#39;+12&#39;+2&#39;+10&#39;+2&#39;+10&#39;+2&#39; = 40&#39; + 8&#39; storage = 48&#39;|Bay1: 12&#39; door (F350 ~22&#39;)|Bays 2-3: 10&#39; doors|2&#39; piers at corners + between doors|&#9855; Level floor, 36&quot; door to mud|Doors face SOUTH">
+<rect x="60" y="568" width="432" height="270" fill="#1e1e2c" stroke="#888" stroke-width="2" opacity="1" rx="1"/>
+<text x="276" y="690" font-family="Segoe UI" font-size="12" fill="#aaa" text-anchor="middle" font-weight="700">GARAGE</text>
+<text x="276" y="707" font-family="Segoe UI" font-size="8" fill="#666" text-anchor="middle" font-weight="normal">48' x 30'  &#9855; level</text>
+<rect x="60" y="568" width="72" height="270" fill="#181828" stroke="#555" stroke-width="1" stroke-dasharray="4,2" opacity="1" rx="1"/>
+<text x="96" y="703" font-family="Segoe UI" font-size="7" fill="#555" text-anchor="middle" transform="rotate(-90,96,703)">STORAGE 8&#39;</text>
+<line x1="267" y1="568" x2="267" y2="838" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="375" y1="568" x2="375" y2="838" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="168" y="590" width="72" height="216" fill="none" stroke="#2ecc71" stroke-width=".8" stroke-dasharray="4,2" rx="4"/>
+<text x="204" y="705" font-family="Segoe UI" font-size="7" fill="#2ecc71" text-anchor="middle" transform="rotate(-90,204,705)">F350 ~22&#39;</text>
+<rect x="285" y="590" width="72" height="200" fill="none" stroke="#3498db" stroke-width=".8" stroke-dasharray="4,2" rx="4"/>
+<text x="321" y="694" font-family="Segoe UI" font-size="7" fill="#3498db" text-anchor="middle" font-weight="normal">Vehicle</text>
+<rect x="393" y="590" width="72" height="200" fill="none" stroke="#3498db" stroke-width=".8" stroke-dasharray="4,2" rx="4"/>
+<text x="429" y="694" font-family="Segoe UI" font-size="7" fill="#3498db" text-anchor="middle" font-weight="normal">Vehicle</text>
+<rect x="132" y="831" width="18" height="7" fill="#555" rx="1"/>
+<rect x="258" y="831" width="18" height="7" fill="#555" rx="1"/>
+<rect x="366" y="831" width="18" height="7" fill="#555" rx="1"/>
+<rect x="474" y="831" width="18" height="7" fill="#555" rx="1"/>
+<rect x="150" y="831" width="108" height="7" fill="#f39c12" rx="1"/>
+<text x="204" y="850" font-family="Segoe UI" font-size="7" fill="#f39c12" text-anchor="middle" font-weight="normal">12' door</text>
+<rect x="276" y="831" width="90" height="7" fill="#f39c12" rx="1"/>
+<text x="321" y="850" font-family="Segoe UI" font-size="7" fill="#f39c12" text-anchor="middle" font-weight="normal">10' door</text>
+<rect x="384" y="831" width="90" height="7" fill="#f39c12" rx="1"/>
+<text x="429" y="850" font-family="Segoe UI" font-size="7" fill="#f39c12" text-anchor="middle" font-weight="normal">10' door</text>
+<text x="276" y="865" font-family="Segoe UI" font-size="7.5" fill="#f39c12" text-anchor="middle" font-weight="normal">&#9660; DOORS SOUTH — 2&#39; piers at corners &amp; between doors: 2+12+2+10+2+10+2 = 40&#39; + 8&#39; storage = 48&#39; &#9660;</text>
+</g>
+<g class="room" data-label="COVERED PORCH" data-dim="8&#39; x 9&#39; = 72 sq ft|Covered entry, roof + posts|&#9855; Zero-step">
+<rect x="636" y="568" width="72" height="80" fill="#0d1a0d" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="5,3" opacity="1" rx="1"/>
+<text x="672" y="600" font-family="Segoe UI" font-size="8" fill="#27ae60" text-anchor="middle" font-weight="700">COVERED</text>
+<text x="672" y="612" font-family="Segoe UI" font-size="8" fill="#27ae60" text-anchor="middle" font-weight="700">PORCH</text>
+<text x="672" y="625" font-family="Segoe UI" font-size="6.5" fill="#888" text-anchor="middle" font-weight="normal">8'x9' &#9855;</text>
+<rect x="640" y="640" width="8" height="8" fill="#27ae60" stroke="#2ecc71" stroke-width=".8"/>
+<rect x="668" y="640" width="8" height="8" fill="#27ae60" stroke="#2ecc71" stroke-width=".8"/>
+<rect x="696" y="640" width="8" height="8" fill="#27ae60" stroke="#2ecc71" stroke-width=".8"/>
+</g>
+<rect x="2" y="64" width="58" height="174" fill="#0d1a0d" stroke="#27ae60" stroke-width="1" stroke-dasharray="5,3" opacity="1" rx="1"/>
+<text x="31" y="151" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="middle" transform="rotate(-90,31,151)">WEST PATIO</text>
+<rect x="708" y="64" width="62" height="228" fill="#0d1a0d" stroke="#27ae60" stroke-width="1" stroke-dasharray="5,3" opacity="1" rx="1"/>
+<text x="739" y="178" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="middle" transform="rotate(90,739,178)">EAST DECK</text>
+<rect x="60" y="64" width="648" height="504" fill="none" stroke="#2a2a3a" stroke-width="2" stroke-dasharray="8,4"/>
+<line x1="60" y1="905" x2="708" y2="905" stroke="#333" stroke-width="1"/><line x1="60" y1="900" x2="60" y2="910" stroke="#333" stroke-width="1"/><line x1="708" y1="900" x2="708" y2="910" stroke="#333" stroke-width="1"/><text x="384" y="917" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" font-weight="normal">72' total width</text>
+<line x1="22" y1="64" x2="22" y2="568" stroke="#333" stroke-width="1"/><line x1="17" y1="64" x2="27" y2="64" stroke="#333" stroke-width="1"/><line x1="17" y1="568" x2="27" y2="568" stroke="#333" stroke-width="1"/><text x="12" y="316" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" transform="rotate(-90,12,316)">56' house</text>
+<line x1="22" y1="568" x2="22" y2="838" stroke="#333" stroke-width="1"/><line x1="17" y1="568" x2="27" y2="568" stroke="#333" stroke-width="1"/><line x1="17" y1="838" x2="27" y2="838" stroke="#333" stroke-width="1"/><text x="12" y="703" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" transform="rotate(-90,12,703)">30' garage</text>
+<rect x="800" y="64" width="330" height="770" fill="#0d0d1a" stroke="#1a1a2a" rx="4"/>
+<text x="965" y="84" font-family="Segoe UI" font-size="10" fill="#00d4ff" text-anchor="middle" font-weight="700">MAIN FLOOR GUIDE</text>
+<text x="965" y="97" font-family="Segoe UI" font-size="7.5" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855; Accessible throughout | Hover rooms</text>
+<rect x="808" y="108" width="12" height="9" fill="#2d1b4e" stroke="#9b59b6" rx="1"/>
+<text x="826" y="116" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Master Bedroom — 36x17 = 624 sf</text>
+<rect x="808" y="122" width="12" height="9" fill="#1a1a3a" stroke="#5dade2" rx="1"/>
+<text x="826" y="130" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Master Bath — 19x17 = 317 sf (1 shower)</text>
+<rect x="808" y="136" width="12" height="9" fill="#16202a" stroke="#4aa3c0" rx="1"/>
+<text x="826" y="144" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Den / Office — 12x13 (NEW)</text>
+<rect x="808" y="150" width="12" height="9" fill="#2a1a2a" stroke="#af7ac5" rx="1"/>
+<text x="826" y="158" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">His/Her Closets — 17x10, 15x10 (BR&#8596;bath)</text>
+<rect x="808" y="164" width="12" height="9" fill="#0f0f0f" stroke="#e74c3c" rx="1"/>
+<text x="826" y="172" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Vault/Storm/Gun — 10x10</text>
+<rect x="808" y="178" width="12" height="9" fill="#2a2218" stroke="#e67e22" rx="1"/>
+<text x="826" y="186" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Mud Room — 13x12</text>
+<rect x="808" y="192" width="12" height="9" fill="#1a2a1a" stroke="#27ae60" rx="1"/>
+<text x="826" y="200" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Laundry — 11x12</text>
+<rect x="808" y="206" width="12" height="9" fill="#241a1a" stroke="#c0392b" rx="1"/>
+<text x="826" y="214" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Mechanical — 12x12 (NEW)</text>
+<rect x="808" y="220" width="12" height="9" fill="#1a1a2e" stroke="#9b59b6" rx="1"/>
+<text x="826" y="228" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Powder Room — 8x8</text>
+<rect x="808" y="234" width="12" height="9" fill="#1c1c2e" stroke="#7f8c8d" rx="1"/>
+<text x="826" y="242" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Staircase — 8&#39; wide, lift-ready</text>
+<rect x="808" y="248" width="12" height="9" fill="#161625" stroke="#d4ac0d" rx="1"/>
+<text x="826" y="256" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Foyer — 8x14 narrow gallery</text>
+<rect x="808" y="262" width="12" height="9" fill="#0d1a0d" stroke="#27ae60" rx="1"/>
+<text x="826" y="270" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Covered Porch — 8x9 (SE)</text>
+<rect x="808" y="276" width="12" height="9" fill="#1a2a3a" stroke="#3498db" rx="1"/>
+<text x="826" y="284" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Living — 24x25 = 607 sf (vaulted)</text>
+<rect x="808" y="290" width="12" height="9" fill="#1a1200" stroke="#f39c12" rx="1"/>
+<text x="826" y="298" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Coffee Bar — 8x8 NE</text>
+<rect x="808" y="304" width="12" height="9" fill="#1a3a2a" stroke="#2ecc71" rx="1"/>
+<text x="826" y="312" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Kitchen — 24x16 (~315 sf net)</text>
+<rect x="808" y="318" width="12" height="9" fill="#1a2a1a" stroke="#58d68d" rx="1"/>
+<text x="826" y="326" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Pantry — 8x9 = 74 sf</text>
+<rect x="808" y="332" width="12" height="9" fill="#1a2d3a" stroke="#1abc9c" rx="1"/>
+<text x="826" y="340" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Dining — 16x14 = 230 sf</text>
+<rect x="808" y="346" width="12" height="9" fill="#1e1e2c" stroke="#888" rx="1"/>
+<text x="826" y="354" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Garage — 48x30 w/ 2&#39; piers (correct math)</text>
+<text x="813" y="368" font-family="Segoe UI" font-size="7.5" fill="#00d4ff" text-anchor="start" font-weight="700">ACCESSIBILITY (this rewrite):</text>
+<text x="813" y="383" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; All interior doors 36&quot; (34&quot; clear) — cyan</text>
+<text x="813" y="396" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Front door 42&quot;, zero-step entry</text>
+<text x="813" y="409" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; ALL bath vanities @ 36&quot; comfort height</text>
+<text x="813" y="422" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Master shower roll-in, no curb, grab bars</text>
+<text x="813" y="435" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; 5&#39; turning radii in key rooms</text>
+<text x="813" y="448" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Center hall 48&quot; wide spine</text>
+<text x="813" y="461" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Lift-ready wide stair + elevator option</text>
+<text x="813" y="474" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Front-load laundry, lever handles</text>
+<text x="813" y="487" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Patio + porch flush thresholds</text>
+<text x="813" y="508" font-family="Segoe UI" font-size="7.5" fill="#00d4ff" text-anchor="start" font-weight="700">DOOR / SYMBOL KEY:</text>
+<rect x="808" y="515" width="18" height="6" fill="#00d4ff" rx="1"/>
+<text x="830" y="521" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Accessible 36&quot; door + swing</text>
+<rect x="808" y="529" width="14" height="8" fill="#27ae60" rx="1"/>
+<text x="830" y="536" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Patio door / porch &#9855;</text>
+<rect x="808" y="543" width="14" height="7" fill="#5dade2" rx="1"/>
+<text x="830" y="549" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Window</text>
+<circle cx="815" cy="560" r="9" fill="none" stroke="#27ae60" stroke-width=".8" stroke-dasharray="3,2"/>
+<text x="830" y="563" font-family="Segoe UI" font-size="7.5" fill="#27ae60" text-anchor="start" font-weight="normal">5&#39; turning radius</text>
+<text x="965" y="586" font-family="Segoe UI" font-size="7" fill="#333" text-anchor="middle" font-weight="normal">* Conceptual only — work with a licensed</text>
+<text x="965" y="598" font-family="Segoe UI" font-size="7" fill="#333" text-anchor="middle" font-weight="normal">architect + accessibility specialist.</text>
+</svg></div>
+<div class="fl" id="floor-upper">
+<svg width="1400" height="1120" viewBox="0 0 1400 1120" xmlns="http://www.w3.org/2000/svg">
+<defs><pattern id="g2" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1400" height="1120" fill="#12121f"/><rect width="1400" height="1120" fill="url(#g2)"/>
+<text x="384" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR  v10  — space used wisely, minimal void</text>
+<text x="384" y="42" font-family="Segoe UI" font-size="8" fill="#444" text-anchor="middle" font-weight="normal">Man cave above garage | 2 beds + small shared bath | Bonus room + loft mezzanine fill former dead space</text>
+<rect x="60" y="64" width="648" height="504" fill="none" stroke="#2a2a3a" stroke-width="1" stroke-dasharray="6,4" opacity=".4"/>
+<rect x="60" y="568" width="432" height="270" fill="none" stroke="#f39c12" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
+<line x1="0" y1="568" x2="708" y2="568" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="6,3" opacity=".5"/>
+<text x="500" y="563" font-family="Segoe UI" font-size="7" fill="#f39c12" text-anchor="middle" font-weight="normal">&#8212; house south wall / garage below &#8212;</text>
+<g class="room" data-label="BEDROOM 2" data-dim="14&#39; x 17&#39; = 246 sq ft (&#8804;250)|&#9855; Lift-accessible|Queen bed, north windows|Walk-in closet + door to hall">
+<rect x="60" y="64" width="126" height="158" fill="#1a2535" stroke="#5d8aa8" stroke-width="2" opacity="1" rx="1"/>
+<text x="123" y="134" font-family="Segoe UI" font-size="10" fill="#5d8aa8" text-anchor="middle" font-weight="700">BEDROOM 2</text>
+<text x="123" y="148" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">14'x17' = 246 sf &#9855;</text>
+<rect x="69" y="72" width="108" height="54" fill="#111e2e" stroke="#4a7a9b" stroke-width="1" rx="2"/>
+<rect x="69" y="72" width="108" height="16" fill="#0d1825" stroke="#4a7a9b" stroke-width=".8" rx="2"/>
+<text x="123" y="110" font-family="Segoe UI" font-size="7" fill="#4a7a9b" text-anchor="middle" font-weight="normal">Queen Bed</text>
+<rect x="78" y="64" width="54" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="105" y1="64" x2="105" y2="71" stroke="#3498db" stroke-width=".8"/>
+<rect x="90" y="219" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M90 222 Q90 249 117 249" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+<text x="120" y="218" font-family="Segoe UI" font-size="5.5" fill="#5d8aa8" text-anchor="middle" font-weight="normal">&#8595; hall</text>
+</g>
+<g class="room" data-label="BEDROOM 3" data-dim="14&#39; x 17&#39; = 246 sq ft (&#8804;250)|&#9855; Lift-accessible|Queen bed|Walk-in closet + door to hall">
+<rect x="186" y="64" width="126" height="158" fill="#1a2535" stroke="#5d8aa8" stroke-width="2" opacity="1" rx="1"/>
+<text x="249" y="134" font-family="Segoe UI" font-size="10" fill="#5d8aa8" text-anchor="middle" font-weight="700">BEDROOM 3</text>
+<text x="249" y="148" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">14'x17' = 246 sf &#9855;</text>
+<rect x="195" y="72" width="108" height="54" fill="#111e2e" stroke="#4a7a9b" stroke-width="1" rx="2"/>
+<rect x="195" y="72" width="108" height="16" fill="#0d1825" stroke="#4a7a9b" stroke-width=".8" rx="2"/>
+<text x="249" y="110" font-family="Segoe UI" font-size="7" fill="#4a7a9b" text-anchor="middle" font-weight="normal">Queen Bed</text>
+<rect x="216" y="64" width="54" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="243" y1="64" x2="243" y2="71" stroke="#3498db" stroke-width=".8"/>
+<rect x="216" y="219" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M216 222 Q216 249 243 249" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+<text x="246" y="218" font-family="Segoe UI" font-size="5.5" fill="#5d8aa8" text-anchor="middle" font-weight="normal">&#8595; hall</text>
+</g>
+<g class="room" data-label="SHARED BATH" data-dim="8&#39; x 12&#39; = 96 sq ft|SMALLER than master bath (245) — no longer wasteful|Tub/shower + 36&quot; comfort vanity + toilet|&#9855; Shared by BR2 + BR3 via hall">
+<rect x="312" y="64" width="72" height="108" fill="#1a1a3a" stroke="#5dade2" stroke-width="2" opacity="1" rx="1"/>
+<text x="348" y="98" font-family="Segoe UI" font-size="9" fill="#5dade2" text-anchor="middle" font-weight="700">SHARED</text>
+<text x="348" y="111" font-family="Segoe UI" font-size="9" fill="#5dade2" text-anchor="middle" font-weight="700">BATH</text>
+<text x="348" y="124" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">8'x12' &#9855;</text>
+<rect x="318" y="132" width="60" height="28" fill="#0d1520" stroke="#5dade2" stroke-width="1.5" rx="8"/><rect x="324" y="138" width="48" height="16" fill="none" stroke="#5dade2" stroke-width=".7" rx="6"/>
+<text x="348" y="153" font-family="Segoe UI" font-size="6" fill="#5dade2" text-anchor="middle" font-weight="normal">tub/shower</text>
+<rect x="320" y="72" width="20" height="30" fill="#1a1a2e" stroke="#95a5a6" stroke-width="1" rx="4"/><ellipse cx="330" cy="93" rx="8" ry="8" fill="none" stroke="#95a5a6" stroke-width="1"/><rect x="322" y="72" width="16" height="9" fill="#1a1a2e" stroke="#95a5a6" stroke-width=".8" rx="2"/>
+<rect x="346" y="74" width="30" height="20" fill="#0d0d1a" stroke="#5dade2" stroke-width="1" rx="6"/><circle cx="361" cy="84" r="3" fill="#5dade2"/>
+<text x="361" y="100" font-family="Segoe UI" font-size="5.5" fill="#5dade2" text-anchor="middle" font-weight="normal">36&quot; vanity</text>
+<rect x="330" y="169" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M330 172 Q330 199 357 199" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+</g>
+<g class="room" data-label="BR2 CLOSET" data-dim="8&#39; x 8&#39; = 64 sq ft|Walk-in">
+<rect x="60" y="222" width="72" height="72" fill="#2a1a2a" stroke="#af7ac5" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="96" y="254" font-family="Segoe UI" font-size="8" fill="#af7ac5" text-anchor="middle" font-weight="700">BR2</text>
+<text x="96" y="267" font-family="Segoe UI" font-size="7.5" fill="#af7ac5" text-anchor="middle" font-weight="700">CLOSET</text>
+</g>
+<g class="room" data-label="BR3 CLOSET" data-dim="8&#39; x 8&#39; = 64 sq ft|Walk-in">
+<rect x="186" y="222" width="72" height="72" fill="#2a1a2a" stroke="#af7ac5" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="222" y="254" font-family="Segoe UI" font-size="8" fill="#af7ac5" text-anchor="middle" font-weight="700">BR3</text>
+<text x="222" y="267" font-family="Segoe UI" font-size="7.5" fill="#af7ac5" text-anchor="middle" font-weight="700">CLOSET</text>
+</g>
+<g class="room" data-label="UPPER HALL" data-dim="Connects BR2, BR3, shared bath, bonus room, stair landing|&#9855; 48&quot;+ wide">
+<rect x="132" y="222" width="54" height="72" fill="#161625" stroke="#444" stroke-width="1.5" opacity="1" rx="1"/>
+<rect x="258" y="222" width="126" height="72" fill="#161625" stroke="#444" stroke-width="1.5" opacity="1" rx="1"/>
+<rect x="312" y="172" width="72" height="50" fill="#161625" stroke="#444" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="321" y="262" font-family="Segoe UI" font-size="8" fill="#666" text-anchor="middle" font-weight="normal">HALL</text>
+</g>
+<g class="room" data-label="BONUS / REC ROOM" data-dim="36&#39; x 18&#39; = 662 sq ft|Fills former dead space (was void)|Family room / gym / play / office|West + windows|&#9855; Lift-accessible">
+<rect x="60" y="294" width="324" height="166" fill="#1a2a2e" stroke="#16a085" stroke-width="2" opacity="1" rx="1"/>
+<text x="222" y="368" font-family="Segoe UI" font-size="12" fill="#16a085" text-anchor="middle" font-weight="700">BONUS / REC ROOM</text>
+<text x="222" y="384" font-family="Segoe UI" font-size="8.5" fill="#888" text-anchor="middle" font-weight="normal">36' x 18' = 662 sf  &#9855;</text>
+<text x="222" y="400" font-family="Segoe UI" font-size="7.5" fill="#555" text-anchor="middle" font-weight="normal">family &#183; gym &#183; play &#183; office</text>
+<rect x="60" y="320" width="7" height="50" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="60" y1="345" x2="67" y2="345" stroke="#3498db" stroke-width=".8"/>
+<rect x="60" y="400" width="7" height="50" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="60" y1="425" x2="67" y2="425" stroke="#3498db" stroke-width=".8"/>
+</g>
+<g class="room" data-label="MAN CAVE VESTIBULE" data-dim="14&#39; x 12&#39; = 168 sq ft|Landing/passage into man cave|Sound-lock buffer to bonus room">
+<rect x="114" y="460" width="126" height="108" fill="#1a1712" stroke="#8a6a30" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="177" y="506" font-family="Segoe UI" font-size="8" fill="#8a6a30" text-anchor="middle" font-weight="700">MAN CAVE</text>
+<text x="177" y="519" font-family="Segoe UI" font-size="8" fill="#8a6a30" text-anchor="middle" font-weight="700">VESTIBULE</text>
+<text x="177" y="532" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">14'x12'</text>
+<rect x="160" y="565" width="27" height="6" fill="#00d4ff" rx="1"/><path d="M160 568 Q160 541 187 541" fill="none" stroke="#00d4ff" stroke-width=".7" stroke-dasharray="3,2"/>
+<text x="177" y="556" font-family="Segoe UI" font-size="6" fill="#f39c12" text-anchor="middle" font-weight="normal">&#8595; man cave</text>
+</g>
+<g class="room" data-label="UPPER MECHANICAL" data-dim="12&#39; x 12&#39; = 144 sq ft|Upper HVAC air handler, returns, chase">
+<rect x="276" y="460" width="108" height="108" fill="#241a1a" stroke="#c0392b" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="330" y="508" font-family="Segoe UI" font-size="8.5" fill="#c0392b" text-anchor="middle" font-weight="700">UPPER MECH</text>
+<text x="330" y="521" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">12' x 12'</text>
+<text x="330" y="535" font-family="Segoe UI" font-size="6.5" fill="#888" text-anchor="middle" font-weight="normal">HVAC / chase</text>
+</g>
+<g class="room" data-label="UPPER CENTER HALL" data-dim="Connects bedroom wing &#8596; loft mezzanine &#8596; stair|&#9855; 48&quot; spine">
+<rect x="384" y="64" width="108" height="136" fill="#141420" stroke="#3a4a5a" stroke-width="1.5" opacity="1" rx="1"/>
+<rect x="384" y="200" width="36" height="368" fill="#141420" stroke="#3a4a5a" stroke-width="1.5" opacity="1" rx="1"/>
+<text x="438" y="130" font-family="Segoe UI" font-size="8" fill="#4a6a7a" text-anchor="middle" font-weight="normal">UPPER HALL</text>
+</g>
+<g class="room" data-label="STAIR LANDING" data-dim="8&#39; x 27&#39;|Arrives from main floor stair (aligned)|&#9855; Lift + elevator option">
+<rect x="420" y="200" width="72" height="248" fill="#1c1c2e" stroke="#7f8c8d" stroke-width="2" opacity="1" rx="1"/>
+<text x="456" y="316" font-family="Segoe UI" font-size="9" fill="#95a5a6" text-anchor="middle" font-weight="700">STAIR</text>
+<text x="456" y="330" font-family="Segoe UI" font-size="9" fill="#95a5a6" text-anchor="middle" font-weight="700">LANDING</text>
+<line x1="420" y1="219" x2="492" y2="219" stroke="#555" stroke-width="1"/><line x1="420" y1="238" x2="492" y2="238" stroke="#555" stroke-width="1"/><line x1="420" y1="257" x2="492" y2="257" stroke="#555" stroke-width="1"/><line x1="420" y1="276" x2="492" y2="276" stroke="#555" stroke-width="1"/><line x1="420" y1="295" x2="492" y2="295" stroke="#555" stroke-width="1"/><line x1="420" y1="314" x2="492" y2="314" stroke="#555" stroke-width="1"/><line x1="420" y1="334" x2="492" y2="334" stroke="#555" stroke-width="1"/><line x1="420" y1="353" x2="492" y2="353" stroke="#555" stroke-width="1"/><line x1="420" y1="372" x2="492" y2="372" stroke="#555" stroke-width="1"/><line x1="420" y1="391" x2="492" y2="391" stroke="#555" stroke-width="1"/><line x1="420" y1="410" x2="492" y2="410" stroke="#555" stroke-width="1"/><line x1="420" y1="429" x2="492" y2="429" stroke="#555" stroke-width="1"/>
+<text x="456" y="444" font-family="Segoe UI" font-size="9" fill="#555" text-anchor="middle" font-weight="normal">&#8595; DOWN</text>
+</g>
+<g class="room" data-label="OPEN TO FOYER BELOW" data-dim="Open rail over foyer|Adds volume to entry">
+<rect x="420" y="448" width="72" height="120" fill="#0d1520" stroke="#3498db" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6" rx="1"/>
+<text x="456" y="508" font-family="Segoe UI" font-size="7.5" fill="#3498db" text-anchor="middle" font-weight="normal">open</text>
+<text x="456" y="520" font-family="Segoe UI" font-size="7.5" fill="#3498db" text-anchor="middle" font-weight="normal">below</text>
+</g>
+<g class="room" data-label="OPEN TO BELOW — VAULTED LIVING" data-dim="24&#39; x 25&#39;|Vaulted living room volume (a feature, not waste)|Overlook railing to living below|North clerestory windows">
+<rect x="492" y="64" width="216" height="228" fill="#0d1520" stroke="#3498db" stroke-width="1.5" stroke-dasharray="7,3" opacity="1" rx="1"/>
+<text x="600" y="168" font-family="Segoe UI" font-size="11" fill="#3498db" text-anchor="middle" font-weight="700">OPEN TO BELOW</text>
+<text x="600" y="184" font-family="Segoe UI" font-size="8" fill="#3498db" text-anchor="middle" font-weight="normal">vaulted living room</text>
+<text x="600" y="200" font-family="Segoe UI" font-size="7" fill="#555" text-anchor="middle" font-weight="normal">(dramatic ceiling — intentional)</text>
+<line x1="492" y1="292" x2="708" y2="292" stroke="#3498db" stroke-width="2.5"/>
+<text x="600" y="286" font-family="Segoe UI" font-size="6.5" fill="#3498db" text-anchor="middle" font-weight="normal">overlook railing to living below</text>
+<rect x="540" y="64" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="570" y1="64" x2="570" y2="71" stroke="#3498db" stroke-width=".8"/>
+<rect x="620" y="64" width="60" height="7" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="650" y1="64" x2="650" y2="71" stroke="#3498db" stroke-width=".8"/>
+</g>
+<g class="room" data-label="LOFT MEZZANINE" data-dim="24&#39; x 31&#39; = 737 sq ft|Over kitchen/dining — fully usable|2nd living / library / office / studio|Overlooks vaulted living to north|&#9855; Lift-accessible">
+<rect x="492" y="292" width="216" height="276" fill="#12202a" stroke="#2980b9" stroke-width="2" opacity="1" rx="1"/>
+<text x="600" y="420" font-family="Segoe UI" font-size="12" fill="#2980b9" text-anchor="middle" font-weight="700">LOFT MEZZANINE</text>
+<text x="600" y="436" font-family="Segoe UI" font-size="8.5" fill="#888" text-anchor="middle" font-weight="normal">24' x 31' = 737 sf  &#9855;</text>
+<text x="600" y="452" font-family="Segoe UI" font-size="7.5" fill="#555" text-anchor="middle" font-weight="normal">2nd living &#183; library &#183; office &#183; studio</text>
+<line x1="492" y1="292" x2="708" y2="292" stroke="#3498db" stroke-width="2.5"/>
+<rect x="701" y="340" width="7" height="60" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="701" y1="370" x2="708" y2="370" stroke="#3498db" stroke-width=".8"/>
+<rect x="701" y="440" width="7" height="60" fill="#5dade2" stroke="#3498db" stroke-width="1"/><line x1="701" y1="470" x2="708" y2="470" stroke="#3498db" stroke-width=".8"/>
+</g>
+<g class="room" data-label="MAN CAVE — ABOVE GARAGE" data-dim="48&#39; x 30&#39; = 1,440 sq ft|Directly above garage slab &#10003; acoustic isolation|Theater (left) + hang-out (right)|9.2 surround; screen wall = NORTH (y=568)">
+<rect x="60" y="568" width="432" height="270" fill="#1f1a0a" stroke="#f39c12" stroke-width="2.5" opacity="1" rx="1"/>
+<text x="240" y="600" font-family="Segoe UI" font-size="12" fill="#f39c12" text-anchor="middle" font-weight="700">MAN CAVE</text>
+<text x="240" y="616" font-family="Segoe UI" font-size="8.5" fill="#888" text-anchor="middle" font-weight="normal">48' x 30'  ABOVE GARAGE &#10003;</text>
+<rect x="68" y="576" width="278" height="13" fill="#1a1000" stroke="#f39c12" stroke-width="1.5" rx="1"/>
+<text x="207" y="586" font-family="Segoe UI" font-size="7.5" fill="#f39c12" text-anchor="middle" font-weight="normal">&#9644;  SCREEN / TV WALL (north)  &#9644;</text>
+<line x1="354" y1="568" x2="354" y2="838" stroke="#8a6a30" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="207" y="640" font-family="Segoe UI" font-size="9" fill="#d4ac0d" text-anchor="middle" font-weight="700">THEATER  ~32&#39; x 30&#39;</text>
+<circle cx="86" cy="628" r="7" fill="#f39c12" opacity=".9"/>
+<text x="86" y="644" font-family="Segoe UI" font-size="6" fill="#f39c12" text-anchor="middle" font-weight="normal">FL</text>
+<circle cx="207" cy="628" r="7" fill="#f39c12" opacity=".9"/>
+<text x="207" y="644" font-family="Segoe UI" font-size="6" fill="#f39c12" text-anchor="middle" font-weight="normal">C</text>
+<circle cx="328" cy="628" r="7" fill="#f39c12" opacity=".9"/>
+<text x="328" y="644" font-family="Segoe UI" font-size="6" fill="#f39c12" text-anchor="middle" font-weight="normal">FR</text>
+<circle cx="86" cy="798" r="7" fill="#f39c12" opacity=".9"/>
+<text x="86" y="814" font-family="Segoe UI" font-size="6" fill="#f39c12" text-anchor="middle" font-weight="normal">RL</text>
+<circle cx="328" cy="798" r="7" fill="#f39c12" opacity=".9"/>
+<text x="328" y="814" font-family="Segoe UI" font-size="6" fill="#f39c12" text-anchor="middle" font-weight="normal">RR</text>
+<circle cx="70" cy="668" r="6" fill="#e67e22" opacity=".9"/>
+<text x="56" y="670" font-family="Segoe UI" font-size="6" fill="#e67e22" text-anchor="end" font-weight="normal">FWL</text>
+<circle cx="344" cy="668" r="6" fill="#e67e22" opacity=".9"/>
+<text x="358" y="670" font-family="Segoe UI" font-size="6" fill="#e67e22" text-anchor="start" font-weight="normal">FWR</text>
+<circle cx="70" cy="756" r="6" fill="#e67e22" opacity=".9"/>
+<text x="56" y="758" font-family="Segoe UI" font-size="6" fill="#e67e22" text-anchor="end" font-weight="normal">SL</text>
+<circle cx="344" cy="756" r="6" fill="#e67e22" opacity=".9"/>
+<text x="358" y="758" font-family="Segoe UI" font-size="6" fill="#e67e22" text-anchor="start" font-weight="normal">SR</text>
+<rect x="105" y="684" width="204" height="26" fill="#261a05" stroke="#7d6608" stroke-width="1" rx="3"/>
+<text x="207" y="701" font-family="Segoe UI" font-size="7" fill="#d4ac0d" text-anchor="middle" font-weight="normal">Row 1 — Recliners</text>
+<rect x="90" y="720" width="234" height="26" fill="#261a05" stroke="#7d6608" stroke-width="1" rx="3"/>
+<text x="207" y="737" font-family="Segoe UI" font-size="7" fill="#d4ac0d" text-anchor="middle" font-weight="normal">Row 2 — Raised</text>
+<rect x="128" y="800" width="26" height="16" fill="#c0392b" stroke="#e74c3c" stroke-width="1" rx="2"/>
+<text x="141" y="812" font-family="Segoe UI" font-size="5.5" fill="#e74c3c" text-anchor="middle" font-weight="normal">SUB1</text>
+<rect x="260" y="800" width="26" height="16" fill="#c0392b" stroke="#e74c3c" stroke-width="1" rx="2"/>
+<text x="273" y="812" font-family="Segoe UI" font-size="5.5" fill="#e74c3c" text-anchor="middle" font-weight="normal">SUB2</text>
+<text x="207" y="832" font-family="Segoe UI" font-size="7" fill="#f39c12" text-anchor="middle" font-weight="normal">9.2 surround + dual subs</text>
+<text x="423" y="752" font-family="Segoe UI" font-size="8" fill="#8a6a30" text-anchor="middle" font-weight="700">HANG-OUT 14&#39; wide</text>
+<rect x="372" y="690" width="102" height="50" fill="#0a1f0a" stroke="#27ae60" stroke-width="1" rx="2"/>
+<text x="423" y="719" font-family="Segoe UI" font-size="6.5" fill="#27ae60" text-anchor="middle" font-weight="normal">Game Table</text>
+<rect x="372" y="760" width="102" height="50" fill="#1a1500" stroke="#8a6a30" stroke-width=".8" rx="2"/>
+<text x="423" y="789" font-family="Segoe UI" font-size="6.5" fill="#8a6a30" text-anchor="middle" font-weight="normal">Bar / Couch</text>
+</g>
+<g class="room" data-label="CAVE BATH" data-dim="10&#39; x 12&#39; = 120 sq ft|Toilet + urinal + 36&quot; vanity, no shower|NE corner of hang-out (NOT on screen wall)|&#9855; Accessible">
+<rect x="402" y="568" width="90" height="108" fill="#1a1a2a" stroke="#e67e22" stroke-width="2" opacity="1" rx="1"/>
+<text x="447" y="606" font-family="Segoe UI" font-size="8.5" fill="#e67e22" text-anchor="middle" font-weight="700">CAVE BATH</text>
+<text x="447" y="619" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">10'x12' &#9855;</text>
+<text x="447" y="632" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">no shower</text>
+<rect x="408" y="640" width="20" height="30" fill="#1a1a2e" stroke="#95a5a6" stroke-width="1" rx="4"/><ellipse cx="418" cy="661" rx="8" ry="8" fill="none" stroke="#95a5a6" stroke-width="1"/><rect x="410" y="640" width="16" height="9" fill="#1a1a2e" stroke="#95a5a6" stroke-width=".8" rx="2"/>
+<rect x="434" y="642" width="18" height="24" fill="#1a1a2e" stroke="#5dade2" stroke-width="1" rx="3"/><ellipse cx="443" cy="649" rx="6" ry="4" fill="none" stroke="#5dade2" stroke-width=".8"/>
+<rect x="458" y="642" width="30" height="20" fill="#0d0d1a" stroke="#5dade2" stroke-width="1" rx="6"/><circle cx="473" cy="652" r="3" fill="#5dade2"/>
+</g>
+<line x1="60" y1="875" x2="708" y2="875" stroke="#333" stroke-width="1"/><line x1="60" y1="870" x2="60" y2="880" stroke="#333" stroke-width="1"/><line x1="708" y1="870" x2="708" y2="880" stroke="#333" stroke-width="1"/><text x="384" y="887" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" font-weight="normal">72' width</text>
+<line x1="22" y1="64" x2="22" y2="568" stroke="#333" stroke-width="1"/><line x1="17" y1="64" x2="27" y2="64" stroke="#333" stroke-width="1"/><line x1="17" y1="568" x2="27" y2="568" stroke="#333" stroke-width="1"/><text x="12" y="316" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" transform="rotate(-90,12,316)">56' house</text>
+<line x1="22" y1="568" x2="22" y2="838" stroke="#333" stroke-width="1"/><line x1="17" y1="568" x2="27" y2="568" stroke="#333" stroke-width="1"/><line x1="17" y1="838" x2="27" y2="838" stroke="#333" stroke-width="1"/><text x="12" y="703" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" transform="rotate(-90,12,703)">30' man cave</text>
+<rect x="800" y="64" width="340" height="720" fill="#0d0d1a" stroke="#1a1a2a" rx="4"/>
+<text x="970" y="84" font-family="Segoe UI" font-size="10" fill="#00d4ff" text-anchor="middle" font-weight="700">UPPER FLOOR GUIDE</text>
+<text x="970" y="97" font-family="Segoe UI" font-size="7.5" fill="#27ae60" text-anchor="middle" font-weight="normal">&#9855; Lift-accessible | Space used wisely</text>
+<rect x="808" y="108" width="12" height="9" fill="#1a2535" stroke="#5d8aa8" rx="1"/>
+<text x="826" y="116" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Bedroom 2 — 14x17 = 246 sf</text>
+<rect x="808" y="122" width="12" height="9" fill="#1a2535" stroke="#5d8aa8" rx="1"/>
+<text x="826" y="130" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Bedroom 3 — 14x17 = 246 sf</text>
+<rect x="808" y="137" width="12" height="9" fill="#1a1a3a" stroke="#5dade2" rx="1"/>
+<text x="826" y="145" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Shared Bath — 8x12 = 96 sf (small!)</text>
+<rect x="808" y="152" width="12" height="9" fill="#2a1a2a" stroke="#af7ac5" rx="1"/>
+<text x="826" y="160" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">BR2 / BR3 Closets — 8x8</text>
+<rect x="808" y="166" width="12" height="9" fill="#161625" stroke="#444" rx="1"/>
+<text x="826" y="174" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Upper Hall</text>
+<rect x="808" y="180" width="12" height="9" fill="#1a2a2e" stroke="#16a085" rx="1"/>
+<text x="826" y="188" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Bonus/Rec Room — 36x18 = 662 sf</text>
+<rect x="808" y="195" width="12" height="9" fill="#1a1712" stroke="#8a6a30" rx="1"/>
+<text x="826" y="203" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Man Cave Vestibule — 14x12</text>
+<rect x="808" y="210" width="12" height="9" fill="#241a1a" stroke="#c0392b" rx="1"/>
+<text x="826" y="218" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Upper Mechanical — 12x12</text>
+<rect x="808" y="224" width="12" height="9" fill="#1c1c2e" stroke="#7f8c8d" rx="1"/>
+<text x="826" y="232" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Stair Landing — aligns w/ stair below</text>
+<rect x="808" y="238" width="12" height="9" fill="#12202a" stroke="#2980b9" rx="1"/>
+<text x="826" y="246" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Loft Mezzanine — 24x31 = 737 sf</text>
+<rect x="808" y="253" width="12" height="9" fill="#0d1520" stroke="#3498db" rx="1"/>
+<text x="826" y="261" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Open to Below — vaulted living</text>
+<rect x="808" y="268" width="12" height="9" fill="#1f1a0a" stroke="#f39c12" rx="1"/>
+<text x="826" y="276" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Man Cave — 48x30 = 1,440 sf &#10003;</text>
+<rect x="808" y="282" width="12" height="9" fill="#1a1a2a" stroke="#e67e22" rx="1"/>
+<text x="826" y="290" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Cave Bath — 10x12 (east) &#10003;</text>
+<text x="813" y="304" font-family="Segoe UI" font-size="7.5" fill="#00d4ff" text-anchor="start" font-weight="700">WHY THIS UPPER FLOOR WORKS:</text>
+<text x="813" y="319" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Bonus room (662) + loft mezz (737) replace</text>
+<text x="813" y="332" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">   the old empty void — now usable rooms</text>
+<text x="813" y="345" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Only true open space = vaulted living volume</text>
+<text x="813" y="358" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">   (a design feature, north clerestory light)</text>
+<text x="813" y="371" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Man cave sits on garage slab = sound isolation</text>
+<text x="813" y="384" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Shared bath (96) is now smaller than master (245)</text>
+<text x="813" y="397" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Stair landing aligns exactly over main stair</text>
+<text x="813" y="420" font-family="Segoe UI" font-size="7.5" fill="#00d4ff" text-anchor="start" font-weight="700">9.2 SURROUND:</text>
+<circle cx="815" cy="433" r="5" fill="#f39c12" opacity=".9"/>
+<text x="828" y="437" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">FL / C / FR / RL / RR</text>
+<circle cx="815" cy="450" r="5" fill="#e67e22" opacity=".9"/>
+<text x="828" y="454" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">FWL / FWR / SL / SR</text>
+<rect x="809" y="463" width="12" height="8" fill="#c0392b" stroke="#e74c3c" stroke-width=".8" rx="1"/>
+<text x="828" y="471" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Subwoofer x2</text>
+<text x="970" y="494" font-family="Segoe UI" font-size="7" fill="#333" text-anchor="middle" font-weight="normal">* Conceptual only — work with a licensed</text>
+<text x="970" y="506" font-family="Segoe UI" font-size="7" fill="#333" text-anchor="middle" font-weight="normal">architect + accessibility specialist.</text>
+</svg></div>
+<div class="fl" id="floor-overlay">
+<svg width="1400" height="1120" viewBox="0 0 1400 1120" xmlns="http://www.w3.org/2000/svg">
+<defs><pattern id="g3" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M9 0L0 0 0 9" fill="none" stroke="#191928" stroke-width=".5"/></pattern></defs><rect width="1400" height="1120" fill="#12121f"/><rect width="1400" height="1120" fill="url(#g3)"/>
+<text x="384" y="26" font-family="Segoe UI" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="700">OVERLAY — Upper floor (solid) over Main floor (ghost)</text>
+<text x="384" y="42" font-family="Segoe UI" font-size="8" fill="#888" text-anchor="middle" font-weight="normal">Confirms what sits above what across the full 72&#39; x 86&#39; footprint</text>
+<rect x="60" y="64" width="324" height="156" fill="#2d1b4e" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="222" y="142" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[MASTER BR]</text>
+<rect x="60" y="310" width="171" height="150" fill="#1a1a3a" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="145" y="385" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[M.BATH]</text>
+<rect x="492" y="64" width="216" height="228" fill="#1a2a3a" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="600" y="178" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[LIVING]</text>
+<rect x="492" y="292" width="216" height="146" fill="#1a3a2a" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="600" y="365" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[KITCHEN]</text>
+<rect x="492" y="438" width="144" height="130" fill="#1a2d3a" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="564" y="503" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[DINING]</text>
+<rect x="636" y="438" width="72" height="130" fill="#161625" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="672" y="503" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[FOYER]</text>
+<rect x="384" y="448" width="108" height="120" fill="#16202a" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="438" y="508" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[DEN]</text>
+<rect x="60" y="460" width="114" height="108" fill="#2a2218" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="117" y="514" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[MUD]</text>
+<rect x="276" y="460" width="108" height="108" fill="#241a1a" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="330" y="514" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[MECH]</text>
+<rect x="420" y="200" width="72" height="248" fill="#1c1c2e" stroke="#333" stroke-width="1" opacity="0.18" rx="1"/>
+<text x="456" y="324" font-family="Segoe UI" font-size="6.5" fill="#666" text-anchor="middle" font-weight="normal">[STAIR]</text>
+<rect x="60" y="64" width="648" height="504" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="6,4"/>
+<rect x="60" y="568" width="432" height="270" fill="none" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4,3"/>
+<line x1="0" y1="568" x2="708" y2="568" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="6,3" opacity=".6"/>
+<text x="500" y="563" font-family="Segoe UI" font-size="7" fill="#f39c12" text-anchor="middle" font-weight="normal">house south wall / garage below</text>
+<rect x="60" y="64" width="126" height="158" fill="#1a2535" stroke="#5d8aa8" stroke-width="2" opacity="0.9" rx="1"/>
+<text x="123" y="140" font-family="Segoe UI" font-size="10" fill="#5d8aa8" text-anchor="middle" font-weight="700">BR2</text>
+<text x="123" y="154" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">14x17</text>
+<rect x="186" y="64" width="126" height="158" fill="#1a2535" stroke="#5d8aa8" stroke-width="2" opacity="0.9" rx="1"/>
+<text x="249" y="140" font-family="Segoe UI" font-size="10" fill="#5d8aa8" text-anchor="middle" font-weight="700">BR3</text>
+<text x="249" y="154" font-family="Segoe UI" font-size="7" fill="#888" text-anchor="middle" font-weight="normal">14x17</text>
+<rect x="312" y="64" width="72" height="108" fill="#1a1a3a" stroke="#5dade2" stroke-width="2" opacity="0.9" rx="1"/>
+<text x="348" y="116" font-family="Segoe UI" font-size="7.5" fill="#5dade2" text-anchor="middle" font-weight="700">SH.BATH</text>
+<rect x="60" y="294" width="324" height="166" fill="#1a2a2e" stroke="#16a085" stroke-width="2" opacity="0.9" rx="1"/>
+<text x="222" y="376" font-family="Segoe UI" font-size="11" fill="#16a085" text-anchor="middle" font-weight="700">BONUS / REC</text>
+<text x="222" y="392" font-family="Segoe UI" font-size="8" fill="#888" text-anchor="middle" font-weight="normal">36x18=662</text>
+<rect x="492" y="64" width="216" height="228" fill="#0d1520" stroke="#3498db" stroke-width="1.5" stroke-dasharray="7,3" opacity="0.65" rx="1"/>
+<text x="600" y="168" font-family="Segoe UI" font-size="10" fill="#3498db" text-anchor="middle" font-weight="700">OPEN / VAULTED</text>
+<text x="600" y="184" font-family="Segoe UI" font-size="8" fill="#3498db" text-anchor="middle" font-weight="normal">over living</text>
+<rect x="492" y="292" width="216" height="276" fill="#12202a" stroke="#2980b9" stroke-width="2" opacity="0.85" rx="1"/>
+<text x="600" y="428" font-family="Segoe UI" font-size="11" fill="#2980b9" text-anchor="middle" font-weight="700">LOFT MEZZANINE</text>
+<text x="600" y="444" font-family="Segoe UI" font-size="8" fill="#888" text-anchor="middle" font-weight="normal">24x31=737</text>
+<rect x="420" y="200" width="72" height="248" fill="#1c1c2e" stroke="#7f8c8d" stroke-width="2" opacity="0.9" rx="1"/>
+<text x="456" y="320" font-family="Segoe UI" font-size="8" fill="#95a5a6" text-anchor="middle" font-weight="700">STAIR</text>
+<text x="456" y="333" font-family="Segoe UI" font-size="7.5" fill="#95a5a6" text-anchor="middle" font-weight="normal">LANDING</text>
+<rect x="60" y="568" width="432" height="270" fill="#1f1a0a" stroke="#f39c12" stroke-width="2.5" opacity="0.9" rx="1"/>
+<text x="240" y="700" font-family="Segoe UI" font-size="12" fill="#f39c12" text-anchor="middle" font-weight="700">MAN CAVE 48x30</text>
+<text x="240" y="717" font-family="Segoe UI" font-size="8" fill="#888" text-anchor="middle" font-weight="normal">above garage &#10003;</text>
+<rect x="68" y="576" width="218" height="12" fill="#1a1000" stroke="#f39c12" stroke-width="1" rx="1"/>
+<text x="177" y="585" font-family="Segoe UI" font-size="6.5" fill="#f39c12" text-anchor="middle" font-weight="normal">&#9644; SCREEN WALL (north) &#9644;</text>
+<rect x="402" y="568" width="90" height="108" fill="#1a1a2a" stroke="#e67e22" stroke-width="2" opacity="0.9" rx="1"/>
+<text x="447" y="620" font-family="Segoe UI" font-size="7.5" fill="#e67e22" text-anchor="middle" font-weight="700">CAVE BATH</text>
+<text x="177" y="50" font-family="Segoe UI" font-size="8" fill="#5d8aa8" text-anchor="middle" font-weight="normal">&#8595; Bedrooms + bonus above master wing &#8595;</text>
+<text x="600" y="58" font-family="Segoe UI" font-size="8" fill="#2980b9" text-anchor="middle" font-weight="normal">Loft + vaulted living above great room</text>
+<text x="222" y="558" font-family="Segoe UI" font-size="8" fill="#f39c12" text-anchor="middle" font-weight="normal">&#8595; Man cave above garage &#8595;</text>
+<line x1="60" y1="905" x2="708" y2="905" stroke="#333" stroke-width="1"/><line x1="60" y1="900" x2="60" y2="910" stroke="#333" stroke-width="1"/><line x1="708" y1="900" x2="708" y2="910" stroke="#333" stroke-width="1"/><text x="384" y="917" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" font-weight="normal">72' total width</text>
+<line x1="22" y1="64" x2="22" y2="568" stroke="#333" stroke-width="1"/><line x1="17" y1="64" x2="27" y2="64" stroke="#333" stroke-width="1"/><line x1="17" y1="568" x2="27" y2="568" stroke="#333" stroke-width="1"/><text x="12" y="316" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" transform="rotate(-90,12,316)">56' house</text>
+<line x1="22" y1="568" x2="22" y2="838" stroke="#333" stroke-width="1"/><line x1="17" y1="568" x2="27" y2="568" stroke="#333" stroke-width="1"/><line x1="17" y1="838" x2="27" y2="838" stroke="#333" stroke-width="1"/><text x="12" y="703" font-family="Segoe UI" font-size="8" fill="#333" text-anchor="middle" transform="rotate(-90,12,703)">30' garage / man cave</text>
+<rect x="800" y="64" width="340" height="420" fill="#0d0d1a" stroke="#1a1a2a" rx="4"/>
+<text x="970" y="84" font-family="Segoe UI" font-size="10" fill="#00d4ff" text-anchor="middle" font-weight="700">OVERLAY KEY</text>
+<text x="970" y="97" font-family="Segoe UI" font-size="7.5" fill="#888" text-anchor="middle" font-weight="normal">Ghost = main floor | Solid = upper floor</text>
+<rect x="808" y="108" width="14" height="9" fill="#2d1b4e" stroke="#666" rx="1" opacity="0.4"/>
+<text x="828" y="116" font-family="Segoe UI" font-size="7.5" fill="#666" text-anchor="start" font-weight="normal">[Ghost] main-floor rooms</text>
+<rect x="808" y="123" width="14" height="9" fill="#1a2535" stroke="#5d8aa8" rx="1" opacity="1"/>
+<text x="828" y="131" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Bedrooms 2 & 3 (over master wing)</text>
+<rect x="808" y="138" width="14" height="9" fill="#1a1a3a" stroke="#5dade2" rx="1" opacity="1"/>
+<text x="828" y="146" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Shared bath (small)</text>
+<rect x="808" y="153" width="14" height="9" fill="#1a2a2e" stroke="#16a085" rx="1" opacity="1"/>
+<text x="828" y="161" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Bonus/Rec room — fills old void</text>
+<rect x="808" y="168" width="14" height="9" fill="#12202a" stroke="#2980b9" rx="1" opacity="1"/>
+<text x="828" y="176" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Loft mezzanine — usable</text>
+<rect x="808" y="183" width="14" height="9" fill="#0d1520" stroke="#3498db" rx="1" opacity="1"/>
+<text x="828" y="191" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Open / vaulted over living</text>
+<rect x="808" y="198" width="14" height="9" fill="#1f1a0a" stroke="#f39c12" rx="1" opacity="1"/>
+<text x="828" y="206" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Man cave — ABOVE GARAGE &#10003;</text>
+<rect x="808" y="213" width="14" height="9" fill="#1a1a2a" stroke="#e67e22" rx="1" opacity="1"/>
+<text x="828" y="221" font-family="Segoe UI" font-size="7.5" fill="#bbb" text-anchor="start" font-weight="normal">Cave bath (east of theater) &#10003;</text>
+<text x="813" y="240" font-family="Segoe UI" font-size="7.5" fill="#00d4ff" text-anchor="start" font-weight="700">STACKING LOGIC:</text>
+<text x="813" y="254" font-family="Segoe UI" font-size="7" fill="#bbb" text-anchor="start" font-weight="normal">&#8226; Master suite (main) &#8594; bedrooms + bonus (up)</text>
+<text x="813" y="268" font-family="Segoe UI" font-size="7" fill="#bbb" text-anchor="start" font-weight="normal">&#8226; Great room (main) &#8594; vaulted + loft mezz (up)</text>
+<text x="813" y="282" font-family="Segoe UI" font-size="7" fill="#bbb" text-anchor="start" font-weight="normal">&#8226; Garage 48&#39; (south) &#8594; man cave 48&#39; (up)</text>
+<text x="813" y="296" font-family="Segoe UI" font-size="7" fill="#bbb" text-anchor="start" font-weight="normal">&#8226; Stair aligns on both floors (x=420..492)</text>
+<text x="813" y="310" font-family="Segoe UI" font-size="7" fill="#bbb" text-anchor="start" font-weight="normal">&#8226; Total N-S: 56&#39; house + 30&#39; garage = 86&#39;</text>
+<text x="813" y="324" font-family="Segoe UI" font-size="7" fill="#bbb" text-anchor="start" font-weight="normal">&#8226; Total footprint: 72&#39; x 86&#39; (incl garage)</text>
+<text x="813" y="348" font-family="Segoe UI" font-size="7.5" fill="#00d4ff" text-anchor="start" font-weight="700">RIGHT-SIZING RECAP:</text>
+<text x="813" y="362" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Master BR 624 &#183; Living 607 &#183; M.Bath 317</text>
+<text x="813" y="375" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Kitchen ~315 net &#183; Dining 230 &#183; Den 160 added</text>
+<text x="813" y="388" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Master bath 317 > Shared bath 96</text>
+<text x="813" y="401" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; One master shower (not two) &#183; Mech room added</text>
+<text x="813" y="414" font-family="Segoe UI" font-size="7" fill="#27ae60" text-anchor="start" font-weight="normal">&#8226; Foyer narrowed + covered porch added</text>
+</svg></div>
+</div></div><div class="tt" id="tt"></div>
+<script>
+let sc=0.6,px=0,py=0,drag=false,sx,sy,spx,spy;
+const cv=document.getElementById('cv'),wr=document.getElementById('wrap'),zl=document.getElementById('zlbl'),tt=document.getElementById('tt');
+function aT(){cv.style.transform=`translate(${px}px,${py}px) scale(${sc})`;zl.textContent=Math.round(sc*100)+'%';}
+function zm(d){const ns=Math.min(3,Math.max(.1,sc+d)),cx=wr.clientWidth/2,cy=wr.clientHeight/2;px=cx-(cx-px)*(ns/sc);py=cy-(cy-py)*(ns/sc);sc=ns;aT();}
+function rst(){sc=0.6;px=0;py=0;aT();}
+wr.addEventListener('mousedown',e=>{drag=true;sx=e.clientX;sy=e.clientY;spx=px;spy=py;wr.classList.add('drag');});
+document.addEventListener('mousemove',e=>{if(!drag)return;px=spx+(e.clientX-sx);py=spy+(e.clientY-sy);aT();});
+document.addEventListener('mouseup',()=>{drag=false;wr.classList.remove('drag');});
+wr.addEventListener('wheel',e=>{e.preventDefault();const d=e.deltaY>0?-.1:.1,r=wr.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,ns=Math.min(3,Math.max(.1,sc+d));px=mx-(mx-px)*(ns/sc);py=my-(my-py)*(ns/sc);sc=ns;aT();},{passive:false});
+wr.addEventListener('touchstart',e=>{if(e.touches.length===1){drag=true;sx=e.touches[0].clientX;sy=e.touches[0].clientY;spx=px;spy=py;}},{passive:true});
+wr.addEventListener('touchmove',e=>{if(!drag||e.touches.length!==1)return;px=spx+(e.touches[0].clientX-sx);py=spy+(e.touches[0].clientY-sy);aT();},{passive:true});
+wr.addEventListener('touchend',()=>{drag=false;});
+function show(f,el){document.querySelectorAll('.fl').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.getElementById('floor-'+f).classList.add('on');el.classList.add('active');rst();}
+document.querySelectorAll('.room').forEach(g=>{g.style.cursor='pointer';
+ g.addEventListener('mouseenter',()=>{const l=g.dataset.label||'',d=g.dataset.dim||'';tt.innerHTML='<strong style="color:#00d4ff">'+l+'</strong><br>'+d.split('|').join('<br>');tt.style.display='block';});
+ g.addEventListener('mousemove',e=>{tt.style.left=(e.clientX+14)+'px';tt.style.top=(e.clientY-10)+'px';});
+ g.addEventListener('mouseleave',()=>{tt.style.display='none';});});
+aT();
+</script></body></html>
